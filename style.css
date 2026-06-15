@@ -10337,3 +10337,29 @@ box-shadow:
 .hero-badge{
     display: none;
 }
+
+
+.about-large-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    border-radius:inherit;
+}
+
+@media (max-width:768px){
+
+    .about-large-image{
+        height:auto !important;
+    }
+
+    .about-large-image img{
+        width:100% !important;
+        height:auto !important;
+        display:block !important;
+        object-fit:cover !important;
+        object-position:center center !important;
+        border-radius:inherit !important;
+    }
+
+}
