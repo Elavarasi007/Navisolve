@@ -1261,3 +1261,57 @@ document.addEventListener("keydown", function(e){
         document.documentElement.classList.remove("popup-open");
     }
 });
+
+
+
+
+const list = document.getElementById("rotatingList");
+
+function setActive() {
+
+    list.querySelectorAll("p").forEach(item => {
+        item.classList.remove("active");
+    });
+
+    list.firstElementChild.classList.add("active");
+}
+
+setActive();
+
+function rotateTicker() {
+
+    const first = list.firstElementChild;
+
+    /* OUTGOING LINE FADE */
+    first.classList.add("fade-out");
+
+    const moveHeight =
+        first.offsetHeight +
+        parseFloat(getComputedStyle(first).marginTop) +
+        parseFloat(getComputedStyle(first).marginBottom);
+
+    list.style.transition =
+        "transform 1.8s cubic-bezier(0.22,1,0.36,1)";
+
+    list.style.transform =
+        `translateY(-${moveHeight}px)`;
+
+    setTimeout(() => {
+
+        first.classList.remove("fade-out");
+
+        list.style.transition = "none";
+
+        list.appendChild(first);
+
+        list.style.transform = "translateY(0)";
+
+        void list.offsetHeight;
+
+        setActive();
+
+    }, 1800);
+}
+
+/* Hold 4 sec + Move 1.8 sec */
+setInterval(rotateTicker, 5800);
