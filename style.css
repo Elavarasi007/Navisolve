@@ -10361,7 +10361,7 @@ box-shadow:
 @media (max-width:768px){
 
     .about-large-image{
-        height:450px !important;
+        height:400px !important;
     }
 
     .about-large-image img{
@@ -10370,5 +10370,247 @@ box-shadow:
         object-fit:cover !important;
         object-position:center center !important;
     }
+
+}
+/* ===================================
+   MOBILE - SHOW ONLY FIRST IMAGE
+=================================== */
+
+@media (max-width: 768px){
+
+    .service-gallery{
+
+        display:block !important;
+
+    }
+
+    .service-gallery .gallery-item{
+
+        display:none !important;
+
+    }
+
+    .service-gallery .gallery-item:first-child{
+
+        display:block !important;
+
+        width:100% !important;
+
+    }
+
+    .service-gallery .gallery-item:first-child img{
+
+        width:100% !important;
+
+        height:auto !important;
+
+        border-radius:24px;
+
+        display:block;
+
+    }
+
+}
+/* ==========================================
+   NEXT SERVICE CARD
+========================================== */
+
+.next-service-box{
+
+    background:
+        radial-gradient(circle at top right,
+        rgba(212,168,77,.22),
+        transparent 45%),
+
+        linear-gradient(
+        135deg,
+        #fffdf8,
+        #f7efe0);
+
+    border:1px solid #e8cf97;
+
+    box-shadow:
+        0 18px 45px rgba(191,145,47,.16);
+
+}
+
+/* GOLD LINE */
+
+.next-service-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:5px;
+    height:100%;
+
+    background:linear-gradient(
+        to bottom,
+        #d4a84d,
+        #f3d58d
+    );
+
+}
+
+
+/* HOVER */
+
+.next-service-box:hover{
+
+    background:
+
+        radial-gradient(circle at top right,
+        rgba(212,168,77,.35),
+        transparent 50%),
+
+        linear-gradient(
+        135deg,
+        #fff9ef,
+        #f5e5bf);
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 25px 60px rgba(212,168,77,.28);
+
+}
+
+/* LABEL */
+
+.next-service-box small{
+
+    display:block;
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    color:#b8903d;
+
+    margin-bottom:8px;
+
+    font-family:'Inter',sans-serif;
+
+}
+
+
+/* TITLE */
+
+.next-service-box h3{
+
+    margin:0;
+
+    font-family:'EB Garamond',serif;
+
+    font-size:34px;
+
+    font-weight:500;
+
+    line-height:1.05;
+
+    color:#111;
+
+}
+
+
+/* DESCRIPTION */
+
+.next-service-box p{
+
+    margin:10px 0 0;
+
+    color:#6b7280;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+
+/* ARROW */
+
+.next-service-box .next-arrow{
+
+    width:56px;
+    height:56px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#fff;
+
+    border:1px solid rgba(212,168,77,.35);
+
+    color:#b8862b;
+
+    font-size:22px;
+
+    transition:.35s ease;
+
+    flex-shrink:0;
+
+}
+
+
+/* ARROW HOVER */
+
+.next-service-box:hover .next-arrow{
+
+    background:#d4a84d;
+
+    color:#fff;
+
+    transform:translateX(6px);
+
+}
+.next-service-box span{
+    font-weight: bold;
+}
+.next-service-box{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.next-service-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+
+    transition:1s;
+
+}
+
+.next-service-box:hover::after{
+
+    left:160%;
 
 }
