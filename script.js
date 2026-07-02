@@ -1265,53 +1265,60 @@ document.addEventListener("keydown", function(e){
 
 
 
-const list = document.getElementById("rotatingList");
 
-function setActive() {
 
-    list.querySelectorAll("p").forEach(item => {
-        item.classList.remove("active");
-    });
 
-    list.firstElementChild.classList.add("active");
-}
+/* =========================================
+   SMOOTH VERTICAL TEXT ROTATOR
+========================================= */
 
-setActive();
+document.addEventListener("DOMContentLoaded", () => {
 
-function rotateTicker() {
+    const list = document.getElementById("rotatingList");
 
-    const first = list.firstElementChild;
+    if (!list) return;
 
-    /* OUTGOING LINE FADE */
-    first.classList.add("fade-out");
+    const items = list.querySelectorAll("p");
 
-    const moveHeight =
-        first.offsetHeight +
-        parseFloat(getComputedStyle(first).marginTop) +
-        parseFloat(getComputedStyle(first).marginBottom);
+    if (items.length === 0) return;
 
-    list.style.transition =
-        "transform 1.8s cubic-bezier(0.22,1,0.36,1)";
+    let current = 0;
 
-    list.style.transform =
-        `translateY(-${moveHeight}px)`;
+    const itemHeight = items[0].offsetHeight + 32; // margin included
 
-    setTimeout(() => {
+    items[0].classList.add("active");
 
-        first.classList.remove("fade-out");
+    setInterval(() => {
 
-        list.style.transition = "none";
+        // remove active
+        list.querySelectorAll("p").forEach(p => p.classList.remove("active"));
 
-        list.appendChild(first);
+        // slide up
+       list.style.transition =
+"transform 1.8s cubic-bezier(.22,1,.36,1)";
+        list.style.transform = `translateY(-${itemHeight}px)`;
 
-        list.style.transform = "translateY(0)";
+        list.addEventListener("transitionend", function move() {
 
-        void list.offsetHeight;
+            list.removeEventListener("transitionend", move);
 
-        setActive();
+            list.appendChild(list.firstElementChild);
 
-    }, 1800);
-}
+            list.style.transition = "none";
+            list.style.transform = "translateY(0)";
 
-/* Hold 4 sec + Move 1.8 sec */
-setInterval(rotateTicker, 5800);
+            requestAnimationFrame(() => {
+
+                current++;
+
+                const all = list.querySelectorAll("p");
+
+                all[0].classList.add("active");
+
+            });
+
+        });
+
+    }, 3000);
+
+});

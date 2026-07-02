@@ -296,42 +296,45 @@ img{
 
     display:block;
 
-    margin-top:-10px;
-    
+    margin-top:-8px;
+    font-size: 95px !important;
 
-    font-style:italic;
+    font-family:'Cormorant Garamond', serif;
 
-    font-weight:500;
+    font-weight:400;
 
-    font-family:'Cormorant Garamond', serif !important;
+    font-style:normal;
 
-    letter-spacing:-1px;
+    font-size:inherit;
 
-    background:
-        linear-gradient(
-            135deg,
-            #8b6518 0%,
-            #a2782a 22%,
-            #d2b166 52%,
-            #e7cc8c 78%,
-            #f6eac7 100%
-        );
+    line-height:0.95;
 
-    -webkit-background-clip:text;
+    letter-spacing:-1.5px;
 
-    -webkit-text-fill-color:transparent;
+    color:#111111;
 
-    background-clip:text;
+    background:none;
 
-    color:transparent;
+    -webkit-text-fill-color:#111111;
 
     text-rendering:optimizeLegibility;
 
     -webkit-font-smoothing:antialiased;
 
-    font-variant-ligatures:common-ligatures;
+    -moz-osx-font-smoothing:grayscale;
 
-    opacity:0.96;
+}
+
+@font-face {
+    font-family: 'Financier Display';
+    src: url('fonts/FinancierDisplay-Regular.woff2') format('woff2'),
+         url('fonts/FinancierDisplay-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.hero h1 span{
+    font-family: 'Financier Display', serif;
 }
 
 
@@ -1161,13 +1164,29 @@ img{
 ========================================= */
 
 .about-content h2{
+
     font-size:72px;
+
     line-height:0.92;
-    font-family:'Cormorant Garamond',serif;
+
+    font-family:'EB Garamond', serif;
+
     font-weight:300;
-    color:#111;
+
+    color:#111111;
+
     margin-bottom:30px;
-    letter-spacing:-1px;
+
+    letter-spacing:-1.8px;
+
+    text-rendering:optimizeLegibility;
+
+    -webkit-font-smoothing:antialiased;
+
+    -moz-osx-font-smoothing:grayscale;
+
+    font-feature-settings:"liga" 1, "kern" 1;
+
 }
 
 
@@ -1407,12 +1426,11 @@ img{
     text-rendering:optimizeLegibility;
 }
 /* EXECUTION WORD FINAL EXACT LUXURY STYLE */
-
 .about-content h2 span{
 
-      font-family:'Cormorant Garamond', serif !important;
+    font-family:'EB Garamond', serif !important;
 
-    font-style:italic;
+    font-style:normal;
 
     font-weight:500 !important;
 
@@ -1422,34 +1440,27 @@ img{
 
     line-height:1;
 
-background:
-    linear-gradient(
-        135deg,
-        #9f741f 0%,
-        #ad8330 16%,
-        #c49a46 34%,
-        #ddb96d 58%,
-        #e9cf92 78%,
-        #f2dfb2 100%
-    );
+    color:#111111;
 
-    -webkit-background-clip:text;
+    background:none;
 
-    -webkit-text-fill-color:transparent;
+    -webkit-background-clip:initial;
 
-    background-clip:text;
+    -webkit-text-fill-color:#111111;
 
-    color:transparent;
+    background-clip:initial;
 
     text-rendering:optimizeLegibility;
 
     -webkit-font-smoothing:antialiased;
 
+    -moz-osx-font-smoothing:grayscale;
+
     font-variant-ligatures:common-ligatures;
 
-    opacity:0.96;
-}
+    opacity:1;
 
+}
 /* =========================================
    OVERLAY EFFECT
 ========================================= */
