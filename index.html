@@ -3,60 +3,52 @@
 
 <head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Navisolve | Strategic Advisory</title>
+    <title>Navisolve | Strategic Advisory</title>
 
+    <!-- Favicon -->
 
-<!-- FAVICON -->
+    <link rel="icon" type="image/png" href="images/favicon03 (1).png">
+    <link rel="apple-touch-icon" href="images/favicon03 (1).png">
 
+    <!-- Tailwind -->
 
-<link  rel="icon" type="image/png" href="images/favicon03 (1).png">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<link rel="apple-touch-icon"   href="images/favicon03 (1).png">
+    <!-- Google Fonts -->
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+  
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Allura&display=swap" rel="stylesheet">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600;700&display=swap"
-    rel="stylesheet">
+    <!-- Other Fonts -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/carmensin">
 
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/mandrel">
 
-    <!-- ADD INSIDE <head> -->
+    <!-- Icons -->
 
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/carmensin">
+    <!-- CSS -->
 
-
-<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/mandrel">
-
-
-
-
-
-<script src="https://unpkg.com/lucide@latest"></script>
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -85,7 +77,8 @@
 
             <a href="#about">About</a>
             <a href="#services">Solutions</a>
-            <a href="#why">The Advantage</a>
+            <a href="#why">Advantage</a>
+            <a href="#team">Expertise</a>
 
         </div>
 
@@ -97,105 +90,175 @@
 
 </nav>
 
-  <!-- HERO -->
 
- <section class="hero">
 
-    <div class="hero-content">
+<!-- HERO -->
 
-        <div class="hero-badge">
-            Trusted by Global Financial Leaders
-        </div>
+<section class="nsv-hero" id="nsv-hero-section">
 
-        <h1>
-           
-             <span>Strategic</span>
-            <span>Advisory</span>
+    <div class="nsv-hero-overlay"></div>
+
+    <div class="nsv-container">
+
+        <!-- HEADING -->
+
+        <h1 class="nsv-title" data-nsv-animate data-nsv-delay="0">
+            <span class="nsv-title-dark">Strategic</span>
+            <span class="nsv-title-gold">Advisory</span>
         </h1>
 
-   <div class="banner-wrapper">
+        <span class="nsv-title-divider" data-nsv-animate data-nsv-delay="200">
+            <span class="nsv-divider-line"></span>
+            <i data-lucide="diamond"></i>
+            <span class="nsv-divider-line"></span>
+        </span>
 
-    <div class="banner-lines" id="rotatingList">
+        <!-- FEATURES -->
 
-        <p>Strategic Advisory for Growth-Focused Enterprises</p>
+        <!-- =========================================================
+     NSVX PREMIUM TEXT CAROUSEL
+     Drop this in PLACE OF the existing:
+       <div class="nsv-features"> ... </div>
+     Everything else in the hero (heading, divider, buttons,
+     stats) stays exactly as it is — do not touch those blocks.
+========================================================= -->
 
-        <p>Hands-on Strategy and Solutions to Complement CEO and Investor Objectives</p>
+<div class="nsvx-hero-carousel" data-nsvx-carousel>
 
-        <p>Policy Innovation for Government Agencies and Central Banks</p>
+    <button class="nsvx-arrow nsvx-arrow-prev" data-nsvx-prev aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
 
-        <p>Attracting Growth Capital & Monetisation for Mid and Small Corporates</p>
+    <div class="nsvx-stage">
+
+        <div class="nsvx-track" data-nsvx-track>
+
+           <!-- SLIDE 01 -->
+<div class="nsvx-slide" data-nsvx-slide>
+    <div class="nsvx-card">
+        <span class="nsvx-card-number">01</span>
+        
+
+        <h3 class="nsvx-card-title">Growth Strategy</h3>
+
+        <p class="nsvx-card-description">
+            Strategic Execution for Growth-Focused Enterprises
+        </p>
+
+        <a href="#services" class="nsvx-card-link">
+            Learn More
+            <span class="nsvx-card-arrow">→</span>
+        </a>
+    </div>
+</div>
+
+<!-- SLIDE 02 -->
+<div class="nsvx-slide" data-nsvx-slide>
+    <div class="nsvx-card">
+        <span class="nsvx-card-number">02</span>
+       
+
+        <h3 class="nsvx-card-title">Investor Alignment</h3>
+
+        <p class="nsvx-card-description">
+            Hands-on Strategy and Solutions to Complement CEO and Investor Objectives
+        </p>
+
+        <a href="#services" class="nsvx-card-link">
+            Learn More
+            <span class="nsvx-card-arrow">→</span>
+        </a>
+    </div>
+</div>
+
+<!-- SLIDE 03 -->
+<div class="nsvx-slide" data-nsvx-slide>
+    <div class="nsvx-card">
+        <span class="nsvx-card-number">03</span>
+       
+
+        <h3 class="nsvx-card-title">Policy Innovation</h3>
+
+        <p class="nsvx-card-description">
+            Policy Innovation for Government Agencies and Central Banks
+        </p>
+
+        <a href="#services" class="nsvx-card-link">
+            Learn More
+            <span class="nsvx-card-arrow">→</span>
+        </a>
+    </div>
+</div>
+
+<!-- SLIDE 04 -->
+<div class="nsvx-slide" data-nsvx-slide>
+    <div class="nsvx-card">
+        <span class="nsvx-card-number">04</span>
+        
+
+        <h3 class="nsvx-card-title">Capital Access</h3>
+
+        <p class="nsvx-card-description">
+            Attracting Growth Capital &amp; Monetisation for Mid and Small Corporates
+        </p>
+
+        <a href="#services" class="nsvx-card-link">
+            Learn More
+            <span class="nsvx-card-arrow">→</span>
+        </a>
+    </div>
+</div>
+
+        </div>
 
     </div>
 
+    <button class="nsvx-arrow nsvx-arrow-next" data-nsvx-next aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <div class="nsvx-pagination" data-nsvx-pagination></div>
+
 </div>
 
-        <div class="hero-buttons">
+        <!-- BUTTONS -->
 
-            <a href="#services" class="primary-btn">
+        <div class="nsv-buttons" data-nsv-animate data-nsv-delay="1050">
+
+            <a href="#services" class="nsv-btn">
                 Explore Our Services
             </a>
 
-            <a href="#contact" class="secondary-btn">
+            <a href="#contact" class="nsv-btn">
                 Contact Us
             </a>
 
         </div>
 
-        <!-- STATS -->
+        <!-- STATS (stat-box / h2[data-target] kept only as JS hooks for the existing counter script) -->
 
-        <div class="hero-stats">
+        <div class="nsv-stats">
 
-            <div class="stat-box">
-
-                <h2
-                    data-target="25"
-                    data-suffix="+">
-                    0
-                </h2>
-
+            <div class="nsv-stat stat-box" data-nsv-animate data-nsv-delay="1200">
+                <h2 data-target="25" data-suffix="+">0</h2>
                 <span>Years</span>
-
             </div>
 
-            <div class="stat-box">
-
-                <h2
-                    data-target="2"
-                    data-prefix="$"
-                    data-suffix="T+">
-                    0
-                </h2>
-
+            <div class="nsv-stat stat-box" data-nsv-animate data-nsv-delay="1350">
+                <h2 data-target="2" data-prefix="$" data-suffix="Tn+">0</h2>
                 <span>Assets</span>
-
             </div>
 
-            <div class="stat-box">
-
-                <h2
-                    data-target="5">
-                    0
-                </h2>
-
+            <div class="nsv-stat stat-box" data-nsv-animate data-nsv-delay="1500">
+                <h2 data-target="5">0</h2>
                 <span>Continents</span>
-
             </div>
 
         </div>
-
-       <!-- SCROLL INDICATOR -->
-
-<a href="#about" class="scroll-indicator">
-
-    <span>SCROLL</span>
-
-    <div class="mouse">
-
-        <div class="wheel"></div>
-
-    </div>
-
-</a>
 
     </div>
 
@@ -228,8 +291,7 @@
         </div>
 
         <!-- TITLE -->
-
-        <h2>
+<h2>
           Bridging Ambition <br>
           with <span>Execution</span>
         </h2>
@@ -250,41 +312,21 @@
 
         <!-- INFO CARD -->
 
-        <div class="about-info-card">
+      <div class="about-info-card">
 
-         <div class="about-info-icon">
+    <div class="about-info-icon">
+        <img src="icon/services/13.webp"
+             alt="Global Network Icon"
+             width="50"
+             height="50">
+    </div>
 
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.7"
-        stroke-linecap="round"
-        stroke-linejoin="round">
-
-        <circle cx="12" cy="12" r="9"></circle>
-
-        <path d="M3 12h18"></path>
-
-        <path d="M12 3c3 3 4 6 4 9s-1 6-4 9c-3-3-4-6-4-9s1-6 4-9z"></path>
-
-    </svg>
+    <div class="about-info-text">
+        <h4>Connecting Growth-Focused Enterprises to Global Ecosystems</h4>
+        <p>United Kingdom • Europe • Middle East • India • Asia Pacific</p>
+    </div>
 
 </div>
-          <div class="about-info-text">
-
-          <h4>
-    Connecting Growth-Focused Enterprises to Global Ecosystems
-</h4>
-
-            <p>
-              United Kingdom • Europe • Middle East • India • Asia Pacific
-            </p>
-
-          </div>
-
-        </div>
 
       </div>
 
@@ -312,7 +354,7 @@
 
           <div class="about-stat-card">
 
-            <h3>$2T+</h3>
+            <h3>$2Tn+</h3>
 
          <span>CAPITAL ADMINISTRATION</span>
 
@@ -366,14 +408,12 @@
 
         <span class="title-line"></span>
 
-        <span class="section-tag">
-          OUR SOLUTIONS
-        </span>
+        
 
       </div>
 
       <h2>
-        Institutional-Grade
+        Institutional Grade
         <span>Solutions</span>
       </h2>
 
@@ -398,10 +438,9 @@
 <div class="service-card">
 
   
-     <div class="service-icon-box">
-          <i data-lucide="trending-up"></i>
-        </div>
-
+   <div class="service-icon-box">
+    <img src="icon/services/14.webp" alt="Private Capital" class="service-icon-img">
+</div>
 
     <!-- TITLE -->
 
@@ -454,8 +493,8 @@
       <div class="service-card">
 
         <div class="service-icon-box">
-          <i data-lucide="shield-check"></i>
-        </div>
+    <img src="icon/services/10.webp" alt="Private Capital" class="service-icon-img">
+</div>
 
         <h3>
           Board Governance & Investor Management
@@ -497,8 +536,8 @@
       <div class="service-card">
 
         <div class="service-icon-box">
-          <i data-lucide="cpu"></i>
-        </div>
+    <img src="icon/services/20.webp" alt="Private Capital" class="service-icon-img">
+</div>
 
         <h3>
           Integration, Digital Transformation & Synergies
@@ -539,9 +578,9 @@
 
       <div class="service-card">
 
-        <div class="service-icon-box">
-          <i data-lucide="map-pin"></i>
-        </div>
+       <div class="service-icon-box">
+    <img src="icon/services/12.webp" alt="Private Capital" class="service-icon-img">
+</div>
 
         <h3>
           Market Entry — UK, Europe, Asia & Middle East
@@ -583,8 +622,8 @@
       <div class="service-card">
 
         <div class="service-icon-box">
-          <i data-lucide="landmark"></i>
-        </div>
+    <img src="icon/services/11.webp" alt="Private Capital" class="service-icon-img">
+</div>
 
         <h3>
           Navigating India’s Ecosystem
@@ -626,8 +665,8 @@
       <div class="service-card">
 
         <div class="service-icon-box">
-          <i data-lucide="files"></i>
-        </div>
+    <img src="icon/services/7.webp" alt="Private Capital" class="service-icon-img">
+</div>
 
         <h3>
           Public Policy — Banking, Structured Finance & Capital Markets
@@ -709,7 +748,7 @@
             <span class="mini-line"></span>
 
             <span>
-                NAVISOLVE ADVISORY
+                NAVISOLVE SOLUTIONS
             </span>
 
         </div>
@@ -723,9 +762,11 @@
 
         <div class="service-icon-main">
 
-            <i data-lucide="trending-up"></i>
+         <img src="icon/services/14.webp" alt="Private Capital" class="service-icon-img">
 
         </div>
+
+        
 
         <div>
 
@@ -1144,32 +1185,49 @@ PLACE BELOW HERO
 
        
         <!-- =========================================
-             NEXT SERVICE
+             NEXT
         ========================================= -->
 
-        <a
-           href="javascript:void(0)"
-           class="next-service-box"
-           onclick="closeServicePopup('capitalPopup');
-                    openServicePopup('governancePopup')">
+       <div class="popup-navigation-wrap">
 
-            <div>
+    <!-- LEFT -->
+    <a href="javascript:void(0)"
+       class="popup-nav-left"
+       onclick="closeServicePopup('capitalPopup');
+                openServicePopup('policyPopup')">
 
-                <span>
-                    NEXT SERVICE
-                </span>
+        <span class="popup-nav-label">
+            Previous
+        </span>
 
-                <h4>
+        <h4>
+            Public Policy
+        </h4>
 
-                    Board Governance & Investor Management
+    </a>
 
-                </h4>
+    <!-- Divider -->
 
-            </div>
+    <div class="popup-nav-divider"></div>
 
-            →
+    <!-- RIGHT -->
 
-        </a>
+    <a href="javascript:void(0)"
+       class="popup-nav-right"
+       onclick="closeServicePopup('capitalPopup');
+                openServicePopup('governancePopup')">
+
+        <span class="popup-nav-label">
+            Next
+        </span>
+
+        <h4>
+            Board Governance
+        </h4>
+
+    </a>
+
+</div>
 
     </div>
 
@@ -1211,7 +1269,7 @@ PLACE BELOW HERO
     <span class="mini-line"></span>
 
     <span>
-        NAVISOLVE ADVISORY
+       NAVISOLVE SOLUTIONS
     </span>
 
 </div>
@@ -1229,7 +1287,7 @@ PLACE BELOW HERO
 
         <div class="service-icon-main">
 
-            <i data-lucide="shield-check"></i>
+          <img src="icon/services/10.webp" alt="Private Capital" class="service-icon-img">
 
         </div>
 
@@ -1601,33 +1659,44 @@ PLACE BELOW HERO
 
 
         <!-- =========================================
-             NEXT SERVICE
+             NEXT
         ========================================= -->
 
-        <a
-           href="javascript:void(0)"
-           class="next-service-box"
-           onclick="closeServicePopup('governancePopup');
-                    openServicePopup('digitalPopup')">
+     <div class="popup-navigation-wrap">
 
-            <div>
+    <!-- PREVIOUS -->
 
-                <span>
-                    NEXT SERVICE
-                </span>
+    <a href="javascript:void(0)"
+       class="popup-nav-left"
+       onclick="closeServicePopup('governancePopup');
+                openServicePopup('capitalPopup')">
 
-                <h4>
+        <span class="popup-nav-label">Previous</span>
 
-                    Integration, Digital Transformation &
-                    Synergies
+        <h4>
+            Attracting Private Capital
+        </h4>
 
-                </h4>
+    </a>
 
-            </div>
+    <div class="popup-nav-divider"></div>
 
-            →
+    <!-- NEXT -->
 
-        </a>
+    <a href="javascript:void(0)"
+       class="popup-nav-right"
+       onclick="closeServicePopup('governancePopup');
+                openServicePopup('digitalPopup')">
+
+        <span class="popup-nav-label">Next</span>
+
+        <h4>
+            Integration, Digital Transformation
+        </h4>
+
+    </a>
+
+</div>
 
     </div>
 
@@ -1671,7 +1740,7 @@ PLACE BELOW HERO
     <span class="mini-line"></span>
 
     <span>
-        NAVISOLVE ADVISORY
+       NAVISOLVE SOLUTIONS
     </span>
 
 </div>
@@ -1689,7 +1758,7 @@ PLACE BELOW HERO
 
         <div class="service-icon-main">
 
-            <i data-lucide="cpu"></i>
+           <img src="icon/services/20.webp" alt="Private Capital" class="service-icon-img">
 
         </div>
 
@@ -2137,33 +2206,43 @@ PLACE BELOW HERO
 
 
         <!-- =========================================
-             NEXT SERVICE
+             NEXT
         ========================================= -->
+<div class="popup-navigation-wrap">
 
-        <a
-           href="javascript:void(0)"
-           class="next-service-box"
-           onclick="closeServicePopup('digitalPopup');
-                    openServicePopup('marketPopup')">
+    <!-- PREVIOUS -->
 
-            <div>
+    <a href="javascript:void(0)"
+       class="popup-nav-left"
+       onclick="closeServicePopup('digitalPopup');
+                openServicePopup('governancePopup')">
 
-                <span>
-                    NEXT SERVICE
-                </span>
+        <span class="popup-nav-label">Previous</span>
 
-                <h4>
+        <h4>
+            Board Governance
+        </h4>
 
-                    Market Entry — UK, Europe,
-                    Asia & Middle East
+    </a>
 
-                </h4>
+    <div class="popup-nav-divider"></div>
 
-            </div>
+    <!-- NEXT -->
 
-            →
+    <a href="javascript:void(0)"
+       class="popup-nav-right"
+       onclick="closeServicePopup('digitalPopup');
+                openServicePopup('marketPopup')">
 
-        </a>
+        <span class="popup-nav-label">Next</span>
+
+        <h4>
+            Market Entry
+        </h4>
+
+    </a>
+
+</div>
 
     </div>
 
@@ -2207,7 +2286,7 @@ PLACE BELOW HERO
     <span class="mini-line"></span>
 
     <span>
-        NAVISOLVE ADVISORY
+       NAVISOLVE SOLUTIONS
     </span>
 
 </div>
@@ -2225,7 +2304,7 @@ PLACE BELOW HERO
 
         <div class="service-icon-main">
 
-            <i data-lucide="map"></i>
+           <img src="icon/services/12.webp" alt="Private Capital" class="service-icon-img">
 
         </div>
 
@@ -2687,33 +2766,44 @@ PLACE BELOW HERO
 
 
         <!-- =========================================
-             NEXT SERVICE
+             NEXT
         ========================================= -->
 
-        <a
-           href="javascript:void(0)"
-           class="next-service-box"
-           onclick="closeServicePopup('marketPopup');
-                    openServicePopup('indiaPopup')">
+       <div class="popup-navigation-wrap">
 
-            <div>
+    <!-- PREVIOUS -->
 
-                <span>
-                    NEXT SERVICE
-                </span>
+    <a href="javascript:void(0)"
+       class="popup-nav-left"
+       onclick="closeServicePopup('marketPopup');
+                openServicePopup('digitalPopup')">
 
-                <h4>
+        <span class="popup-nav-label">Previous</span>
 
-                    Navigating India’s
-                    Financial Ecosystem
+        <h4>
+            Integration, Digital Transformation
+        </h4>
 
-                </h4>
+    </a>
 
-            </div>
+    <div class="popup-nav-divider"></div>
 
-            →
+    <!-- NEXT -->
 
-        </a>
+    <a href="javascript:void(0)"
+       class="popup-nav-right"
+       onclick="closeServicePopup('marketPopup');
+                openServicePopup('indiaPopup')">
+
+        <span class="popup-nav-label">Next</span>
+
+        <h4>
+            Navigating India’s Financial Ecosystem
+        </h4>
+
+    </a>
+
+</div>
 
     </div>
 
@@ -2757,7 +2847,7 @@ PLACE BELOW HERO
     <span class="mini-line"></span>
 
     <span>
-        NAVISOLVE ADVISORY
+       NAVISOLVE SOLUTIONS
     </span>
 
 </div>
@@ -2775,7 +2865,7 @@ PLACE BELOW HERO
 
         <div class="service-icon-main">
 
-            <i data-lucide="landmark"></i>
+           <img src="icon/services/11.webp" alt="Private Capital" class="service-icon-img">
 
         </div>
 
@@ -3240,34 +3330,44 @@ PLACE BELOW HERO
        
 
         <!-- =========================================
-             NEXT SERVICE
+             NEXT
         ========================================= -->
 
-        <a
-           href="javascript:void(0)"
-           class="next-service-box"
-           onclick="closeServicePopup('indiaPopup');
-                    openServicePopup('policyPopup')">
+       <div class="popup-navigation-wrap">
 
-            <div>
+    <!-- PREVIOUS -->
 
-                <span>
-                    NEXT SERVICE
-                </span>
+    <a href="javascript:void(0)"
+       class="popup-nav-left"
+       onclick="closeServicePopup('indiaPopup');
+                openServicePopup('marketPopup')">
 
-                <h4>
+        <span class="popup-nav-label">Previous</span>
 
-                    Public Policy —
-                    Banking, Structured Finance &
-                    Capital Markets
+        <h4>
+            Market Entry
+        </h4>
 
-                </h4>
+    </a>
 
-            </div>
+    <div class="popup-nav-divider"></div>
 
-            →
+    <!-- NEXT -->
 
-        </a>
+    <a href="javascript:void(0)"
+       class="popup-nav-right"
+       onclick="closeServicePopup('indiaPopup');
+                openServicePopup('policyPopup')">
+
+        <span class="popup-nav-label">Next</span>
+
+        <h4>
+            Public Policy
+        </h4>
+
+    </a>
+
+</div>
 
     </div>
 
@@ -3310,7 +3410,7 @@ PLACE BELOW HERO
     <span class="mini-line"></span>
 
     <span>
-        NAVISOLVE ADVISORY
+      NAVISOLVE SOLUTIONS
     </span>
 
 </div>
@@ -3328,7 +3428,7 @@ PLACE BELOW HERO
 
         <div class="service-icon-main">
 
-            <i data-lucide="briefcase"></i>
+           <img src="icon/services/7.webp" alt="Private Capital" class="service-icon-img">
 
         </div>
 
@@ -3843,33 +3943,44 @@ PLACE BELOW HERO
 
 
         <!-- =========================================
-             NEXT SERVICE
+             NEXT
         ========================================= -->
 
-        <a
-           href="javascript:void(0)"
-           class="next-service-box"
-           onclick="closeServicePopup('policyPopup');
-                    openServicePopup('capitalPopup')">
+        <div class="popup-navigation-wrap">
 
-            <div>
+    <!-- PREVIOUS -->
 
-                <span>
-                    NEXT SERVICE
-                </span>
+    <a href="javascript:void(0)"
+       class="popup-nav-left"
+       onclick="closeServicePopup('policyPopup');
+                openServicePopup('indiaPopup')">
 
-                <h4>
+        <span class="popup-nav-label">Previous</span>
 
-                    Navigating India’s
-                    Financial Ecosystem
+        <h4>
+            Navigating India’s Financial Ecosystem
+        </h4>
 
-                </h4>
+    </a>
 
-            </div>
+    <div class="popup-nav-divider"></div>
 
-            →
+    <!-- NEXT -->
 
-        </a>
+    <a href="javascript:void(0)"
+       class="popup-nav-right"
+       onclick="closeServicePopup('policyPopup');
+                openServicePopup('capitalPopup')">
+
+        <span class="popup-nav-label">Next</span>
+
+        <h4>
+            Attracting Private Capital
+        </h4>
+
+    </a>
+
+</div>
 
     </div>
 
@@ -4108,7 +4219,7 @@ PLACE BELOW HERO
         <!-- TITLE -->
 
         <h2 class="presence-title">
-           Cross-Border  
+           Cross Border <br>
             <span>Capability </span>
         </h2>
 
@@ -4121,7 +4232,7 @@ PLACE BELOW HERO
 <div class="presence-card">
 
     <div class="presence-icon">
-        <img src="https://flagcdn.com/w80/gb.png" alt="UK Flag">
+        <img src="icon/services/16.webp" alt="UK Flag">
     </div>
 
     <h3>United Kingdom</h3>
@@ -4136,7 +4247,7 @@ PLACE BELOW HERO
 <div class="presence-card">
 
     <div class="presence-icon">
-        <img src="https://flagcdn.com/w80/eu.png" alt="EU Flag">
+        <img src="icon/services/19.webp" alt="EU Flag">
     </div>
 
     <h3>Europe</h3>
@@ -4151,7 +4262,7 @@ PLACE BELOW HERO
 <div class="presence-card">
 
     <div class="presence-icon">
-        <img src="https://flagcdn.com/w80/ae.png" alt="UAE Flag">
+        <img src="icon/services/18.webp" alt="UAE Flag">
     </div>
 
     <h3>Middle East</h3>
@@ -4166,7 +4277,7 @@ PLACE BELOW HERO
 <div class="presence-card">
 
     <div class="presence-icon">
-        <img src="https://flagcdn.com/w80/in.png" alt="India Flag">
+        <img src="icon/services/17.webp" alt="India Flag">
     </div>
 
     <h3>India</h3>
@@ -4181,7 +4292,7 @@ PLACE BELOW HERO
 <div class="presence-card">
 
     <div class="presence-icon">
-        <img src="https://flagcdn.com/w80/jp.png" alt="Japan Flag">
+        <img src="icon/services/15.webp" alt="Japan Flag">
     </div>
 
     <h3>Asia Pacific</h3>
@@ -4611,9 +4722,7 @@ PLACE BELOW HERO
 
             <span class="awards-line"></span>
 
-            <span class="section-tag">
-                RECOGNITION
-            </span>
+           
 
         </div>
 
@@ -4637,9 +4746,11 @@ PLACE BELOW HERO
 
     <div class="award-card">
 
-        <div class="award-icon">
-            <i data-lucide="trophy"></i>
-        </div>
+       <div class="award-icon">
+    <img src="icon/services/9.webp"
+         alt="Award Icon"
+         class="award-icon-img">
+</div>
 
         <span class="award-year">
             2026
@@ -4661,9 +4772,11 @@ PLACE BELOW HERO
 
     <div class="award-card">
 
-        <div class="award-icon">
-            <i data-lucide="award"></i>
-        </div>
+       <div class="award-icon">
+    <img src="icon/services/8.webp"
+         alt="Award Icon"
+         class="award-icon-img">
+</div>
 
         <span class="award-year">
             2024
@@ -4686,9 +4799,11 @@ PLACE BELOW HERO
 
     <div class="award-card">
 
-        <div class="award-icon">
-            <i data-lucide="star"></i>
-        </div>
+       <div class="award-icon">
+    <img src="icon/services/6.webp"
+         alt="Award Icon"
+         class="award-icon-img">
+</div>
 
         <span class="award-year">
             2019
@@ -4711,9 +4826,11 @@ PLACE BELOW HERO
 
     <div class="award-card">
 
-        <div class="award-icon">
-            <i data-lucide="medal"></i>
-        </div>
+       <div class="award-icon">
+    <img src="icon/services/5.webp"
+         alt="Award Icon"
+         class="award-icon-img">
+</div>
 
         <span class="award-year">
             2016
@@ -4736,9 +4853,11 @@ PLACE BELOW HERO
 
     <div class="award-card">
 
-        <div class="award-icon">
-            <i data-lucide="shield-check"></i>
-        </div>
+      <div class="award-icon">
+    <img src="icon/services/4.webp"
+         alt="Award Icon"
+         class="award-icon-img">
+</div>
 
         <span class="award-year">
             2015
@@ -4762,8 +4881,10 @@ PLACE BELOW HERO
     <div class="award-card">
 
         <div class="award-icon">
-            <i data-lucide="crown"></i>
-        </div>
+    <img src="icon/services/3.webp"
+         alt="Award Icon"
+         class="award-icon-img">
+</div>
 
         <span class="award-year">
             2014
@@ -4830,9 +4951,11 @@ PLACE BELOW HERO
 
                 <div class="contact-info-item">
 
-                    <div class="contact-icon">
-                        <i data-lucide="map-pin"></i>
-                    </div>
+                   <div class="contact-icon">
+    <img src="icon/services/12.webp"
+         alt="Location"
+         class="contact-icon-img">
+</div>
 
                     <div>
 
@@ -4854,8 +4977,10 @@ PLACE BELOW HERO
                 <div class="contact-info-item">
 
                     <div class="contact-icon">
-                        <i data-lucide="mail"></i>
-                    </div>
+    <img src="icon/services/2.webp"
+         alt="Email"
+         class="contact-icon-img">
+</div>
 
                     <div>
 
@@ -4875,9 +5000,11 @@ PLACE BELOW HERO
 
                 <div class="contact-info-item">
 
-                    <div class="contact-icon">
-                        <i data-lucide="phone"></i>
-                    </div>
+               <div class="contact-icon">
+    <img src="icon/services/1.webp"
+         alt="Phone"
+         class="contact-icon-img">
+</div>
 
                     <div>
 
@@ -5191,20 +5318,15 @@ PLACE BELOW HERO
 
   <!-- JS -->
 
-  <script src="script.js"></script>
-
-  <script>
-  lucide.createIcons();
-</script>
-
 <script src="https://unpkg.com/lucide@latest"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="script.js"></script>
 
 <script>
     lucide.createIcons();
 </script>
-
-
-
 </body>
 
 </html>

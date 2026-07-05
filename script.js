@@ -1268,59 +1268,350 @@ document.addEventListener("keydown", function(e){
 
 
 
-/* =========================================
-   SMOOTH VERTICAL TEXT ROTATOR
-========================================= */
+const swiper = new Swiper(".heroSwiper", {
 
-document.addEventListener("DOMContentLoaded", () => {
+    effect: "coverflow",
 
-    const list = document.getElementById("rotatingList");
+    centeredSlides: true,
 
-    if (!list) return;
+    slidesPerView: "auto",
 
-    const items = list.querySelectorAll("p");
+    initialSlide: 2,
 
-    if (items.length === 0) return;
+    loop: true,
 
-    let current = 0;
+    speed: 900,
 
-    const itemHeight = items[0].offsetHeight + 32; // margin included
+    grabCursor: true,
 
-    items[0].classList.add("active");
+    autoplay:{
 
-    setInterval(() => {
+        delay:3000,
 
-        // remove active
-        list.querySelectorAll("p").forEach(p => p.classList.remove("active"));
+        disableOnInteraction:false,
 
-        // slide up
-       list.style.transition =
-"transform 1.8s cubic-bezier(.22,1,.36,1)";
-        list.style.transform = `translateY(-${itemHeight}px)`;
+    },
 
-        list.addEventListener("transitionend", function move() {
+    coverflowEffect:{
 
-            list.removeEventListener("transitionend", move);
+        rotate:0,
 
-            list.appendChild(list.firstElementChild);
+        stretch:-70,
 
-            list.style.transition = "none";
-            list.style.transform = "translateY(0)";
+        depth:320,
 
-            requestAnimationFrame(() => {
+        modifier:1.6,
 
-                current++;
+        scale:0.85,
 
-                const all = list.querySelectorAll("p");
+        slideShadows:false
 
-                all[0].classList.add("active");
+    },
 
-            });
+    pagination:{
+
+        el:".swiper-pagination",
+
+        clickable:true,
+
+    },
+
+    navigation:{
+
+        nextEl:".swiper-button-next",
+
+        prevEl:".swiper-button-prev"
+
+    },
+
+    breakpoints:{
+
+        320:{
+            slidesPerView:1.3
+        },
+
+        768:{
+            slidesPerView:3
+        },
+
+        1200:{
+            slidesPerView:"auto"
+        }
+
+    }
+
+});
+/* =========================================================
+   NSV HERO — PLAY ANIMATION ONLY ONCE
+========================================================= */
+
+(function () {
+
+    const animatedEls = document.querySelectorAll(
+        "#nsv-hero-section [data-nsv-animate]"
+    );
+
+    if (!animatedEls.length) return;
+
+    const observer = new IntersectionObserver((entries, observer) => {
+
+        entries.forEach((entry) => {
+
+            if (!entry.isIntersecting) return;
+
+            const el = entry.target;
+            const delay = el.dataset.nsvDelay || 0;
+
+            el.style.transitionDelay = delay + "ms";
+            el.classList.add("nsv-in-view");
+
+            // Stop observing after first animation
+            observer.unobserve(el);
 
         });
 
-    }, 3000);
+    }, {
+        threshold: 0.2
+    });
 
-});
+    animatedEls.forEach((el) => observer.observe(el));
+
+})();
 
 
+/* =========================================================
+   NSVX — PREMIUM HERO TEXT CAROUSEL (vanilla JS)
+   Fully isolated, no dependencies, no jQuery, no GSAP.
+   Safe to load as its own <script src="hero-carousel.js">
+   after your existing script.js — does not touch any
+   existing variables, functions, or DOM outside .nsvx-*.
+========================================================= */
+
+(function () {
+
+    const root = document.querySelector("[data-nsvx-carousel]");
+    if (!root) return;
+
+    const track      = root.querySelector("[data-nsvx-track]");
+    const slides      = Array.from(root.querySelectorAll("[data-nsvx-slide]"));
+    const prevBtn     = root.querySelector("[data-nsvx-prev]");
+    const nextBtn     = root.querySelector("[data-nsvx-next]");
+    const paginationEl = root.querySelector("[data-nsvx-pagination]");
+
+    const total = slides.length;
+    if (!total) return;
+
+    let activeIndex   = 0;
+    let autoplayTimer = null;
+    const AUTOPLAY_DELAY = 5000;
+
+    /* ---------- BUILD DOTS ---------- */
+
+    const dots = slides.map((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "nsvx-dot";
+        dot.type = "button";
+        dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+        dot.addEventListener("click", () => {
+            goTo(i);
+            restartAutoplay();
+        });
+        paginationEl.appendChild(dot);
+        return dot;
+    });
+
+    /* ---------- RESPONSIVE OFFSETS ----------
+       How far (in px) neighboring slides sit from center,
+       and how many "visible" side slides to show. */
+
+    function getConfig() {
+        const w = window.innerWidth;
+        if (w <= 640) {
+            return { offset: 0,   sideVisible: 0, gap: 0 };
+        }
+        if (w <= 1023) {
+            return { offset: 200, sideVisible: 1, gap: 200 };
+        }
+        return { offset: 260, sideVisible: 1, gap: 260 };
+    }
+
+    /* ---------- CIRCULAR DISTANCE ---------- */
+
+    function circularOffset(i, active, n) {
+        let diff = i - active;
+        if (diff > n / 2) diff -= n;
+        if (diff < -n / 2) diff += n;
+        return diff;
+    }
+
+    /* ---------- RENDER ---------- */
+
+    function render() {
+        const { offset, sideVisible, gap } = getConfig();
+
+        slides.forEach((slide, i) => {
+            const diff = circularOffset(i, activeIndex, total);
+            const abs = Math.abs(diff);
+
+            slide.classList.toggle("nsvx-active", diff === 0);
+
+            let translateX = diff * gap;
+            let scale = 1;
+            let opacity = 1;
+            let blur = 0;
+            let z = 10;
+
+            if (diff === 0) {
+                scale = 1;
+                opacity = 1;
+                blur = 0;
+                z = 30;
+            } else if (abs <= sideVisible) {
+                scale = 0.85;
+                opacity = 0.45;
+                blur = 2;
+                z = 20 - abs;
+            } else {
+                // hidden slides parked further out, invisible
+                translateX = diff * (gap + 220);
+                scale = 0.75;
+                opacity = 0;
+                blur = 4;
+                z = 1;
+            }
+
+            slide.style.transform =
+                `translate(-50%,-50%) translateX(${translateX}px) scale(${scale})`;
+            slide.style.opacity = opacity;
+            slide.style.filter = blur ? `blur(${blur}px)` : "none";
+            slide.style.zIndex = z;
+        });
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("nsvx-dot-active", i === activeIndex);
+        });
+    }
+
+    function goTo(index) {
+        activeIndex = ((index % total) + total) % total;
+        render();
+    }
+
+    function next() {
+        goTo(activeIndex + 1);
+    }
+
+    function prev() {
+        goTo(activeIndex - 1);
+    }
+
+    /* ---------- AUTOPLAY ---------- */
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(next, AUTOPLAY_DELAY);
+    }
+
+    function stopAutoplay() {
+        if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
+        }
+    }
+
+    function restartAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+
+    /* ---------- HOVER PAUSE / RESUME ---------- */
+
+    root.addEventListener("mouseenter", stopAutoplay);
+    root.addEventListener("mouseleave", startAutoplay);
+
+    /* ---------- ARROW CONTROLS ---------- */
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            prev();
+            restartAutoplay();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            next();
+            restartAutoplay();
+        });
+    }
+
+    /* ---------- KEYBOARD SUPPORT ---------- */
+
+    root.setAttribute("tabindex", "0");
+
+    root.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
+            prev();
+            restartAutoplay();
+        } else if (e.key === "ArrowRight") {
+            next();
+            restartAutoplay();
+        }
+    });
+
+    /* ---------- TOUCH SWIPE ---------- */
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const SWIPE_THRESHOLD = 40;
+
+    root.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoplay();
+    }, { passive: true });
+
+    root.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const delta = touchEndX - touchStartX;
+
+        if (Math.abs(delta) > SWIPE_THRESHOLD) {
+            if (delta < 0) {
+                next();
+            } else {
+                prev();
+            }
+        }
+
+        startAutoplay();
+    }, { passive: true });
+
+    /* ---------- RESIZE ---------- */
+
+    let resizeTimer = null;
+
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(render, 120);
+    });
+
+    /* ---------- ENTRANCE ANIMATION ----------
+       Reuses the same reveal-on-scroll pattern as the rest
+       of the hero, but scoped only to this carousel so it
+       does not interfere with the existing nsv- observer. */
+
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("nsvx-in-view");
+            obs.unobserve(entry.target);
+        });
+    }, { threshold: 0.2 });
+
+    revealObserver.observe(root);
+
+    /* ---------- INIT ---------- */
+
+    render();
+    startAutoplay();
+
+})();
