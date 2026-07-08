@@ -9175,7 +9175,7 @@ img{
     .popup-content h2,
     .popup-content h3{
 
-        text-align:center !important;
+        text-align:left !important;
 
         width:100% !important;
 
@@ -9192,7 +9192,7 @@ img{
     .service-modal p,
     .popup-content p{
 
-        text-align:justify !important;
+        text-align:left !important;
 
         line-height:1.9 !important;
     }
@@ -9251,7 +9251,7 @@ img{
 
     .service-bullet-list li{
 
-        text-align:justify !important;
+        text-align:left !important;
 
         line-height:1.9 !important;
 
@@ -9271,9 +9271,6 @@ img{
 
         display:block !important;
 
-        margin-left:auto !important;
-
-        margin-right:auto !important;
     }
 
 }
@@ -9322,7 +9319,7 @@ img{
 
     .deliver-item p{
 
-        text-align:justify !important;
+        text-align:left !important;
     }
 
 }
@@ -13699,6 +13696,21 @@ box-shadow:
 
         padding-top:80px;
 
+    }
+
+}
+@media (max-width: 768px) {
+
+    .service-header-left{
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .service-icon-main{
+        margin: 0 !important;
+        margin-right: auto !important;
     }
 
 }
