@@ -6192,7 +6192,8 @@ body.popup-open{
 
     .popup-right h2{
 
-        font-size:42px;
+        font-size:32px;
+        text-align: center;
     }
 
     .highlight-grid{
@@ -6212,6 +6213,9 @@ body.popup-open{
 
         font-size:18px;
     }
+    .highlight-card p{
+        text-align: center;
+    }
 
     .popup-close{
 
@@ -6220,6 +6224,9 @@ body.popup-open{
         height:48px;
 
         font-size:20px;
+    }
+    .leader-expertise {
+        text-align: center !important;
     }
 }
 
@@ -7909,6 +7916,9 @@ img{
     .container{
         width:92%;
     }
+    .service-mini-tag span{
+        text-align: left;
+    }
 
     /* NAVBAR */
 
@@ -8749,8 +8759,7 @@ img{
     .about-content p,
     .why-card p,
     .service-card p,
-    .leader-intro,
-    .contact-text{
+    .leader-intro{
 
         font-size:15px !important;
 
@@ -8758,7 +8767,9 @@ img{
 
         text-align:justify !important;
     }
-
+     .contact-text{
+        text-align: center;
+     }
     .service-grid,
     .why-grid,
     .presence-grid,
@@ -9433,7 +9444,7 @@ body.service-popup-open{
 
         position:absolute !important;
 
-        top:18px !important;
+        top:40px !important;
 
         right:18px !important;
 
