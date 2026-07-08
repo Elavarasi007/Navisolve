@@ -4099,7 +4099,7 @@ font-family:'Cormorant Garamond', serif !important;
 
 .contact{
 
-    background:#f6f2eb;
+    background:#faf8f3;
 }
 
 
@@ -4693,7 +4693,7 @@ font-family:'Cormorant Garamond', serif !important;
 
     width:220px;
 
-    margin-bottom:28px;
+    margin-bottom:15px;
 }
 
 .footer-brand p{
@@ -4717,7 +4717,7 @@ font-family:'Cormorant Garamond', serif !important;
 
     font-size:22px;
 
-    margin-bottom:28px;
+    margin-bottom:15px;
 
     color:#111;
 
@@ -4944,7 +4944,7 @@ font-family:'Cormorant Garamond', serif !important;
 
     gap:80px;
 
-    margin-bottom:70px;
+    margin-bottom:40px;
 
     align-items:flex-start;
 }
@@ -7246,7 +7246,7 @@ body.popup-open{
 
     border-radius:34px;
 
-    padding:70px 70px 55px;
+    padding:40px 70px 55px;
 
     box-shadow:0 40px 100px rgba(0,0,0,0.28);
 }
@@ -7264,41 +7264,67 @@ body.popup-open{
    CLOSE BUTTON
 ========================================= */
 
+
+
+
+
 .service-close-btn{
 
-    position:absolute;
+    position: sticky;
 
-    top:24px;
+    top: 0px;
 
-    right:24px;
 
-    width:54px;
 
-    height:54px;
+    margin-left: auto;
 
-    border:none;
+    margin-right: 0px;
 
-    border-radius:50%;
 
-    background:#111;
 
-    color:#fff;
+    width: 54px;
 
-    font-size:18px;
+    height: 54px;
 
-    cursor:pointer;
 
-    transition:0.35s ease;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: #fff;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+
+
+    z-index: 9999;
+
+    transition: all .35s ease;
+
 }
+
 
 
 .service-close-btn:hover{
 
-    background:#c89538;
+    background: #c8902f;
 
-    transform:rotate(90deg);
+    transform: rotate(90deg);
+
 }
-
 
 /* =========================================
    MINI LABEL
@@ -8758,7 +8784,7 @@ img{
     .services-subtitle,
     .about-content p,
     .why-card p,
-    .service-card p,
+    
     .leader-intro{
 
         font-size:15px !important;
@@ -8766,6 +8792,14 @@ img{
         line-height:1.9 !important;
 
         text-align:justify !important;
+    }
+    .service-card p{
+        
+        font-size:15px !important;
+
+        line-height:1.9 !important;
+
+     
     }
      .contact-text{
         text-align: center;
@@ -9434,29 +9468,35 @@ body.service-popup-open{
     }
 
     /* CLOSE BUTTON */
+/* CLOSE BUTTON */
 
-    .service-close-btn,
-    .service-close,
-    .popup-close{
+.service-close-btn,
+.service-close,
+.popup-close{
 
-        position:absolute !important;
+    position: sticky !important;
 
-        top:40px !important;
+    top: 0px !important;
 
-        right:18px !important;
+    margin-left: auto !important;
+    margin-right: 0px !important;
 
-        width:42px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 
-        height:42px !important;
+    width: 42px !important;
+    height: 42px !important;
 
-        min-width:42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
 
-        min-height:42px !important;
+    font-size: 18px !important;
 
-        font-size:18px !important;
+    border-radius: 50% !important;
 
-        border-radius:50%;
-    }
+    z-index: 99999 !important;
+}
 
 }/* ===================================
    PREMIUM LEFT GLOW ICON
@@ -10799,7 +10839,7 @@ box-shadow:
 
     color:#b8892f;
 
-    margin:15px 0 15px;
+    margin:2px 0 2px;
 
 }
 
@@ -13713,4 +13753,8 @@ box-shadow:
         margin-right: auto !important;
     }
 
+}
+
+#leaderPopup .popup-close{
+    top: 45px !important;
 }

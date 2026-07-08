@@ -1403,7 +1403,7 @@ const swiper = new Swiper(".heroSwiper", {
 
     let activeIndex   = 0;
     let autoplayTimer = null;
-    const AUTOPLAY_DELAY = 5000;
+    const AUTOPLAY_DELAY = 2000;
 
     /* ---------- BUILD DOTS ---------- */
 
@@ -1615,3 +1615,30 @@ const swiper = new Swiper(".heroSwiper", {
     startAutoplay();
 
 })();
+
+
+function openServicePopup(popupId){
+
+    // Close all popups
+    document.querySelectorAll(".service-popup").forEach((popup)=>{
+        popup.classList.remove("active");
+    });
+
+    // Open selected popup
+    const popup = document.getElementById(popupId);
+
+    if(popup){
+
+        popup.classList.add("active");
+
+        // Reset popup scroll to top
+        const box = popup.querySelector(".service-details-box");
+
+        if(box){
+            box.scrollTop = 0;
+        }
+    }
+
+    document.body.classList.add("popup-open");
+    document.documentElement.classList.add("popup-open");
+}
