@@ -1153,33 +1153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-let scrollPosition = 0;
 
-function openServicePopup(){
-
-    scrollPosition = window.pageYOffset;
-
-    document.body.style.top = `-${scrollPosition}px`;
-
-    document.body.classList.add("service-popup-open");
-
-    document.documentElement.classList.add("service-popup-open");
-
-    document.getElementById("capitalPopup").classList.add("active");
-}
-
-function closeServicePopup(){
-
-    document.body.classList.remove("service-popup-open");
-
-    document.documentElement.classList.remove("service-popup-open");
-
-    document.getElementById("capitalPopup").classList.remove("active");
-
-    document.body.style.top = "";
-
-    window.scrollTo(0, scrollPosition);
-}
 
 /* =========================================
    OPEN SERVICE POPUP
@@ -1641,4 +1615,26 @@ function openServicePopup(popupId){
 
     document.body.classList.add("popup-open");
     document.documentElement.classList.add("popup-open");
+}
+function closeServicePopup(popupId){
+
+    const popup = document.getElementById(popupId);
+
+    if(popup){
+        popup.classList.remove("active");
+    }
+
+    // Enable body scroll
+    document.body.classList.remove("popup-open");
+    document.documentElement.classList.remove("popup-open");
+
+    // Stay in Services section
+    const services = document.getElementById("services");
+
+    if(services){
+        services.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
 }
