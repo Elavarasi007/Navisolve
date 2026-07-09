@@ -13166,7 +13166,12 @@ box-shadow:
     color:#c8902f;
     margin-bottom:16px;
 }
-
+.nsvx-card-number{
+    display: none;
+}
+.nsvx-card-title{
+    padding-top:60px;
+}
 .nsvx-card-divider{
     display:block;
     width:36px;
@@ -13184,8 +13189,8 @@ box-shadow:
 .nsvx-card-title{
     margin:0 0 12px;
     font-family:'Cormorant Garamond', serif;
-    font-weight:600;
-    font-size:22px;
+    font-weight:900;
+    font-size:27px;
     line-height:1.25;
     color:#141414;
 }
@@ -13195,6 +13200,7 @@ box-shadow:
     font-size:14px;
     line-height:1.75;
     color:#6b7078;
+    font-weight: 800;
 }
 
 .nsvx-card-link{
