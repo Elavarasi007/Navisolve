@@ -4862,7 +4862,9 @@ font-family:'Cormorant Garamond', serif !important;
     .footer-brand p{
 
         font-size:17px;
+        
     }
+    
 }
 /* =========================================
    FOOTER CONTACT
@@ -9146,7 +9148,7 @@ img{
 
     .footer-brand p{
 
-        text-align:justify !important;
+        text-align:center !important;
     }
 
 }
@@ -12465,14 +12467,22 @@ box-shadow:
         margin:0 auto 20px;
 
     }
+       .footer-brand p{
 
-    .footer-brand p{
+        width:100%;
+        max-width:1000px;
 
-        max-width:420px;
+        margin:18px auto 0;
 
-        margin:0 auto;
+        padding:0;
+
+        text-align:center !important;
 
         line-height:1.8;
+
+        word-break:normal;
+        overflow-wrap:break-word;
+        hyphens:none;
 
     }
 
@@ -13757,4 +13767,326 @@ box-shadow:
 
 #leaderPopup .popup-close{
     top: 45px !important;
+}
+
+
+
+/* =========================================================
+   NSVX — SERVICE POPUP CLOSE BUTTON FIX (SCOPED ONLY)
+   Fixes sticky alignment of the close (X) button inside
+   .service-details-box without touching layout/design.
+========================================================= */
+
+.service-popup .nsvx-popup-sticky-header{
+
+    position: sticky;
+    top: 0;
+    height: 0;
+    overflow: visible;
+    z-index: 10000;
+    pointer-events: none;
+
+    /* cancel out .service-details-box padding so the button
+       can sit near the true popup corner */
+    margin-top: 40px;
+    margin-left: -70px;
+    margin-right: -60px;
+}
+
+.service-popup .nsvx-popup-close{
+
+    position: absolute;
+    top: -34px;
+    right: 15px;
+
+    pointer-events: auto;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #fff;
+    color: #111;
+
+    font-size: 24px;
+    cursor: pointer;
+
+    transition:
+        transform .35s ease,
+        background .35s ease;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.service-popup .nsvx-popup-close:hover{
+
+    background: #c8902f;
+    transform: rotate(90deg);
+}
+
+/* ---------- Tablet (matches .service-details-box padding:36px 26px) ---------- */
+
+@media(max-width:992px){
+
+    .service-popup .nsvx-popup-sticky-header{
+        margin-top: -16px;
+        margin-left: -26px;
+        margin-right: -26px;
+    }
+
+    .service-popup .nsvx-popup-close{
+        top: -16px;
+        right: 16px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:768px){
+
+    .service-popup .nsvx-popup-sticky-header{
+        margin-top: -15px;
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
+    .service-popup .nsvx-popup-close{
+        top: -15px;
+        right: 14px;
+
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+}
+
+/* =========================================================
+   NSVX — MOBILE NAV TOGGLE ICON (SCOPED ONLY)
+   Turns the existing hamburger button into an animated
+   hamburger <-> close (X) icon. Button size, background,
+   border-radius, shadow, padding, position, hover are
+   untouched — only the inner icon is added/animated.
+========================================================= */
+
+.nsvx-mobile-toggle{
+
+    /* keep original text hidden/removed visually,
+       icon replaces it without changing button box */
+    font-size: 0;
+    line-height: 0;
+}
+
+.nsvx-mobile-toggle-icon{
+
+    position: relative;
+    display: inline-block;
+
+    width: 22px;
+    height: 16px;
+}
+
+.nsvx-mobile-toggle-icon span{
+
+    position: absolute;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    border-radius: 2px;
+    background: currentColor;
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease,
+        top .35s ease;
+}
+
+.nsvx-mobile-toggle-icon span:nth-child(1){
+    top: 0;
+}
+
+.nsvx-mobile-toggle-icon span:nth-child(2){
+    top: 7px;
+}
+
+.nsvx-mobile-toggle-icon span:nth-child(3){
+    top: 14px;
+}
+
+/* ---------- ACTIVE (X) STATE ---------- */
+
+.nsvx-mobile-toggle.nsvx-mobile-toggle-active .nsvx-mobile-toggle-icon span:nth-child(1){
+    top: 7px;
+    transform: rotate(45deg);
+}
+
+.nsvx-mobile-toggle.nsvx-mobile-toggle-active .nsvx-mobile-toggle-icon span:nth-child(2){
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nsvx-mobile-toggle.nsvx-mobile-toggle-active .nsvx-mobile-toggle-icon span:nth-child(3){
+    top: 7px;
+    transform: rotate(-45deg);
+}
+
+/* =========================================================
+   NSVX — FOOTER LOGO: DESKTOP / MOBILE VISIBILITY (SCOPED)
+   Wrapper adds no layout impact of its own (display:contents)
+   so existing .footer-logo spacing/margins are unaffected.
+========================================================= */
+
+/* =========================================================
+   NSVX FOOTER LOGO RESPONSIVE
+========================================================= */
+
+/* Desktop Logo - Default */
+.nsvx-footer-logo-desktop{
+    display:block;
+}
+
+/* Mobile Logo - Hidden by Default */
+.nsvx-footer-logo-mobile{
+    display:none;
+}
+
+/* ==========================================
+   Tablet & Mobile (1024px and below)
+========================================== */
+@media screen and (max-width:1024px){
+
+    .nsvx-footer-logo-desktop{
+        display:none !important;
+    }
+
+    .nsvx-footer-logo-mobile{
+        display:block !important;
+    }
+
+}
+
+/* 600px - 699px */
+
+@media screen and (min-width:500px) and (max-width:699px){
+
+    .footer-grid{
+
+        grid-template-columns:1.3fr .9fr .9fr !important;
+
+        gap:28px !important;
+    }
+        .footer-brand p{
+
+        width:100%;
+        max-width:1000px;
+
+        margin:18px auto 0;
+
+        padding:0;
+
+        text-align:center !important;
+
+        line-height:1.8;
+
+        word-break:normal;
+        overflow-wrap:break-word;
+        hyphens:none;
+
+    }
+
+}
+/* 600px - 699px */
+
+@media screen and (min-width:700px) and (max-width:899px){
+
+    .footer-grid{
+
+        grid-template-columns:1.3fr .9fr .9fr !important;
+
+        gap:28px !important;
+    }
+        .footer-brand p{
+
+        width:100%;
+        max-width:1000px;
+
+        margin:18px auto 0;
+
+        padding:0;
+
+        text-align:center !important;
+
+        line-height:1.8;
+
+        word-break:normal;
+        overflow-wrap:break-word;
+        hyphens:none;
+
+    }
+
+}
+/* ==========================================
+   Footer Brand Text Fix
+   600px - 699px
+========================================== */
+
+@media screen and (min-width:600px) and (max-width:699px){
+
+    .footer-brand{
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+    }
+
+    .footer-brand p{
+
+        width:100%;
+        max-width:1000px;
+
+        margin:18px auto 0;
+
+        padding:0;
+
+        text-align:center !important;
+
+        line-height:1.8;
+
+        word-break:normal;
+        overflow-wrap:break-word;
+        hyphens:none;
+
+    }
+
+}
+
+/* ==========================================
+   Contact Paragraph Responsive Alignment
+========================================== */
+
+/* Desktop */
+.contact-text{
+    text-align:left;
+}
+
+/* Tablet & Mobile */
+@media screen and (max-width:768px){
+
+    .contact-text{
+
+        text-align:center !important;
+
+        margin-left:auto;
+        margin-right:auto;
+
+    }
+
 }

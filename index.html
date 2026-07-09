@@ -69,9 +69,13 @@
 
         </div>
 
-        <button class="menu-toggle" id="menuToggle">
-            ☰
-        </button>
+      <button class="menu-toggle nsvx-mobile-toggle" id="menuToggle" aria-label="Toggle menu">
+    <span class="nsvx-mobile-toggle-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </span>
+</button>
 
         <div class="nav-links">
 
@@ -692,11 +696,13 @@
 
         <!-- CLOSE -->
 
-      <button
-        class="service-close-btn"
+     <div class="nsvx-popup-sticky-header">
+    <button
+        class="nsvx-popup-close"
         onclick="closeServicePopup('capitalPopup')">
         ✕
     </button>
+</div>
 
 
 
@@ -1212,13 +1218,15 @@ PLACE BELOW HERO
 
         <!-- CLOSE -->
 
-        <button
-            class="service-close-btn"
-            onclick="closeServicePopup('governancePopup')">
+      
 
-            ✕
-
-        </button>
+        <div class="nsvx-popup-sticky-header">
+    <button
+        class="nsvx-popup-close"
+        onclick="closeServicePopup('governancePopup')">
+        ✕
+    </button>
+</div>
 
 
         <!-- MINI LABEL -->
@@ -1682,13 +1690,14 @@ PLACE BELOW HERO
 
         <!-- CLOSE -->
 
-        <button
-            class="service-close-btn"
-            onclick="closeServicePopup('digitalPopup')">
-
-            ✕
-
-        </button>
+       
+        <div class="nsvx-popup-sticky-header">
+    <button
+        class="nsvx-popup-close"
+        onclick="closeServicePopup('digitalPopup')">
+        ✕
+    </button>
+</div>
 
 
 
@@ -2228,13 +2237,15 @@ PLACE BELOW HERO
 
         <!-- CLOSE -->
 
-        <button
-            class="service-close-btn"
-            onclick="closeServicePopup('marketPopup')">
+        
 
-            ✕
-
-        </button>
+        <div class="nsvx-popup-sticky-header">
+    <button
+        class="nsvx-popup-close"
+        onclick="closeServicePopup('marketPopup')">
+        ✕
+    </button>
+</div>
 
 
 
@@ -2789,15 +2800,15 @@ PLACE BELOW HERO
 
         <!-- CLOSE -->
 
-        <button
-            class="service-close-btn"
-            onclick="closeServicePopup('indiaPopup')">
+     
 
-            ✕
-
-        </button>
-
-
+<div class="nsvx-popup-sticky-header">
+    <button
+        class="nsvx-popup-close"
+        onclick="closeServicePopup('indiaPopup')">
+        ✕
+    </button>
+</div>
 
        <!-- MINI LABEL -->
 
@@ -3352,14 +3363,14 @@ PLACE BELOW HERO
 
         <!-- CLOSE -->
 
-        <button
-            class="service-close-btn"
-            onclick="closeServicePopup('policyPopup')">
-
-            ✕
-
-        </button>
-
+     
+<div class="nsvx-popup-sticky-header">
+    <button
+        class="nsvx-popup-close"
+        onclick="closeServicePopup('policyPopup')">
+        ✕
+    </button>
+</div>
 
 
         <!-- MINI LABEL -->
@@ -5059,10 +5070,16 @@ PLACE BELOW HERO
 
             <div class="footer-brand">
 
-                <img
-                    src="images/footer_logo_new.webp"
-                    alt="Navisolve Logo"
-                    class="footer-logo">
+               
+                     <img
+            src="images/footer_logo_new.webp"
+            alt="Navisolve Logo"
+            class="footer-logo nsvx-footer-logo-desktop">
+
+        <img
+            src="images/services/footer_logo.webp"
+            alt="Navisolve Logo"
+            class="footer-logo nsvx-footer-logo-mobile">
 
                 <p>
                     Strategic advisory for growth-focused enterprises.

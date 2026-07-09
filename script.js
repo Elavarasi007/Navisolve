@@ -1132,6 +1132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         menuToggle.addEventListener("click", () => {
 
             navLinks.classList.toggle("active");
+            menuToggle.classList.toggle("nsvx-mobile-toggle-active");
 
         });
 
@@ -1144,6 +1145,7 @@ document.addEventListener("DOMContentLoaded", () => {
             item.addEventListener("click", () => {
 
                 navLinks.classList.remove("active");
+                menuToggle.classList.remove("nsvx-mobile-toggle-active");
 
             });
 
