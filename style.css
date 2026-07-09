@@ -14090,3 +14090,29 @@ box-shadow:
     }
 
 }
+
+/* ==========================================
+   Footer Copyright Center
+========================================== */
+
+.footer-bottom{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.footer-bottom p{
+
+    width:100%;
+
+    margin:0;
+
+    text-align:center;
+
+}
