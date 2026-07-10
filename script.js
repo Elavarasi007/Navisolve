@@ -131,34 +131,79 @@ cards.forEach((card) => {
 
 
 /* =========================================
-   OPEN POPUP
+   LEADERSHIP POPUP
 ========================================= */
 
-function openPopup(){
+let leadershipPageScrollPosition = 0;
 
-    document
-        .getElementById("leaderPopup")
-        .classList
-        .add("active");
+function getLeadershipPopupScrollContainers() {
 
-    document.body.style.overflow = "hidden";
+    const popup = document.getElementById("leaderPopup");
+
+    if (!popup) {
+        return [];
+    }
+
+    return [
+        popup,
+        popup.querySelector(".popup-box"),
+        popup.querySelector(".popup-right"),
+        popup.querySelector(".popup-left")
+    ].filter(Boolean);
 }
 
+function resetLeadershipPopupScroll() {
 
-/* =========================================
-   CLOSE POPUP
-========================================= */
+    const containers = getLeadershipPopupScrollContainers();
 
-function closePopup(){
+    containers.forEach((container) => {
+        container.scrollTop = 0;
+        container.scrollLeft = 0;
+    });
 
-    document
-        .getElementById("leaderPopup")
-        .classList
-        .remove("active");
-
-    document.body.style.overflow = "auto";
+    requestAnimationFrame(() => {
+        containers.forEach((container) => {
+            container.scrollTop = 0;
+            container.scrollLeft = 0;
+        });
+    });
 }
 
+function openPopup() {
+
+    const popup = document.getElementById("leaderPopup");
+
+    if (!popup) {
+        return;
+    }
+
+    resetLeadershipPopupScroll();
+
+    popup.classList.add("active");
+
+    document.documentElement.classList.add("leadership-popup-open");
+    document.body.classList.add("leadership-popup-open");
+
+    requestAnimationFrame(() => {
+        resetLeadershipPopupScroll();
+    });
+}
+
+function closePopup() {
+
+    const popup = document.getElementById("leaderPopup");
+
+    if (!popup) {
+        return;
+    }
+
+    popup.classList.remove("active");
+
+    document.documentElement.classList.remove("leadership-popup-open");
+    document.body.classList.remove("leadership-popup-open");
+
+    resetLeadershipPopupScroll();
+}
 
 /* =========================================
    ESC CLOSE
@@ -171,8 +216,6 @@ document.addEventListener("keydown", function(e){
         closePopup();
     }
 });
-
-
 
 
 
@@ -1640,3 +1683,297 @@ function closeServicePopup(popupId){
         });
     }
 }
+
+
+/* =========================================
+   LEADERSHIP CAROUSEL
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* LEADERSHIP MEMBER DATA */
+
+    const leadershipMembers = [
+
+        {
+            name: "Navita Yadav",
+            role: "Founder & Principal",
+            status: "Global Finance & Investment Leader",
+            image: "images/team.webp",
+            imageAlt: "Navita Yadav",
+
+            shortBiography: `
+                Global finance and investment leader with over <strong>25 years of experience</strong> across banking, capital markets,and private capital. Navita Yadav has built and scaled international financial institutions, led major M&A initiatives, and advised businesses, regulators, and investment firms across Europe, Asia, and the Middle East.
+                <br><br>
+                Formerly CEO of European institutions, she oversaw more than <strong>US$2 trillion in assets</strong> across global private markets. She has also held global leadership positions in financial services and capital markets, driving strategic expansion, operational transformation, and institutional growth.
+                <br><br>
+                Beyond business leadership, she actively contributes to public policy, financial sector innovation, and social impact initiatives focused on healthcare, development, and community empowerment.
+            `,
+
+            popupOverlaySubtitle: "Founder & Principal · Navisolve Ltd",
+            popupRole: "Founder & Principal",
+
+            popupIntroduction: "Navita Yadav is a Global business leader and value creator with over 25 years of Senior management and Board experience in Business Services, Banking and Consulting.",
+            popupSecondParagraph: "Her extensive leadership background includes CEO, Executive Committee member, and global head positions within major financial services and capital markets institutions.",
+
+            popupQuote: "“Recognised as an international expert across European and Asian financial markets, Navita has Successfully built, operated and monetised businesses spanning continents.”",
+
+            awards: [
+                "British Asians Role Model of the Year — 2026",
+                "UK Professional Impact of the Year — 2024",
+                "India’s Top 100 Women in Finance — 2019",
+                "Power Profile in Financial Services — 2016",
+                "Business Leadership Award for Innovation — 2015",
+                "Women’s Leadership Achievement Award — 2014"
+            ],
+
+            careerHighlights: [
+                { title: "Partners Group Platform Leadership", description: "Leads a Global Investment platform in Financial Services Asset servicing with Partners Group." },
+                { title: "Apex Group — Regional CEO", description: "Administered US$2 trillion in Private Equity, Private Debt and Open-ended Funds assets." },
+                { title: "Vistra — Global Head", description: "Built one of the first truly global and independent capital markets businesses with $300Bn assets." },
+                { title: "M&A & Transformation", description: "Led 12 major mergers and acquisitions in financial services and digital assets globally." }
+            ],
+
+            expertise: "Financial Services · Banking · Consulting · Capital Markets · Private Equity · Asset Servicing · Business Transformation · Mergers & Acquisitions · Digital Assets · Investment Platforms · Public Policy · International Market Expansion.",
+
+            impact: "Beyond business leadership, Navita actively supports healthcare initiatives for vulnerable communities in Africa and nutrition programmes for children in India and the UK. As a Board Member of Amref Health Africa UK, she contributes to strategic governance and capital initiatives at the intersection of health, finance and development."
+        },
+
+        {
+            name: "Arjun Mehta",
+            role: "Senior Strategic Advisor",
+            status: "Global Strategy & Capital Markets Leader",
+            image: "images/team.webp",
+            imageAlt: "Arjun Mehta",
+
+            shortBiography: `
+                Global strategy and capital markets leader with over <strong>20 years of experience</strong> across corporate finance, institutional investment, business transformation, and international expansion. Arjun Mehta has advised growing enterprises, boards, and investors across Europe, Asia, India, and the Middle East.
+                <br><br>
+                Formerly holding senior leadership positions across investment and advisory organisations, he has supported <strong>complex transactions</strong> and strategic partnerships, operational improvements, and cross-border growth initiatives.
+                <br><br>
+                Beyond corporate advisory, he contributes to entrepreneurship, leadership development, financial innovation, and sustainable business growth.
+            `,
+
+            popupOverlaySubtitle: "Senior Strategic Advisor · Navisolve Ltd",
+            popupRole: "Senior Strategic Advisor",
+
+            popupIntroduction: "Arjun Mehta is a Global strategy and capital markets leader with over 20 years of Senior management and advisory experience in Corporate Finance, Institutional Investment and Business Transformation.",
+            popupSecondParagraph: "His leadership background spans senior advisory and executive positions within investment and financial services organisations, supporting boards, institutional investors, and high-growth enterprises.",
+
+            popupQuote: "“Recognised for his cross-border expertise across Europe, Asia, India, and the Middle East, Arjun has guided enterprises through complex transactions, strategic partnerships, and sustainable international expansion.”",
+
+            awards: [
+                "Global Strategy Leadership Award — 2025",
+                "Capital Markets Advisor of the Year — 2022",
+                "Emerging Markets Impact Award — 2018",
+                "International Business Transformation Award — 2015"
+            ],
+
+            careerHighlights: [
+                { title: "Strategic Advisory Leadership", description: "Advises boards, institutional investors, and growing enterprises on corporate finance and capital strategy across global markets." },
+                { title: "Cross-Border Capital Markets", description: "Supported complex transactions and strategic partnerships across Europe, Asia, India, and the Middle East." },
+                { title: "Business Transformation", description: "Guided operational improvements and international expansion initiatives for high-growth organisations." },
+                { title: "Institutional Investment Strategy", description: "Held senior leadership positions across investment and advisory organisations driving long-term growth." }
+            ],
+
+            expertise: "Corporate Finance · Institutional Investment · Capital Markets · Business Transformation · Strategic Partnerships · International Expansion · Investment Advisory · Cross-Border Transactions · Leadership Development · Financial Innovation.",
+
+            impact: "Beyond corporate advisory, Arjun contributes to entrepreneurship and leadership development programmes, supporting financial innovation and sustainable business growth initiatives across emerging markets."
+        }
+
+    ];
+
+    let currentLeadershipIndex = 0;
+    let leadershipAnimating = false;
+
+    const leadershipCardA = document.getElementById("leadershipCardA");
+    const leadershipCardB = document.getElementById("leadershipCardB");
+    const leadershipBioEl = document.getElementById("leadershipActiveBio");
+    const previousButton = document.querySelector(".leadership-nav-prev");
+    const nextButton = document.querySelector(".leadership-nav-next");
+
+    /* SAFETY CHECK — bail out quietly if the section isn't on this page */
+
+    if (!leadershipCardA || !leadershipCardB) {
+        return;
+    }
+
+    /* RENDER A SINGLE CARD (front or rear) WITH A MEMBER'S DATA */
+
+    function leadershipRenderCard(cardEl, memberIndex){
+
+        const member = leadershipMembers[memberIndex];
+
+        const img = cardEl.querySelector(".leadership-stack-img");
+        if(img){
+            img.src = member.image;
+            img.alt = member.imageAlt;
+        }
+
+        const nameEl = cardEl.querySelector(".leadership-stack-name");
+        if(nameEl) nameEl.textContent = member.name;
+
+        const roleEl = cardEl.querySelector(".leadership-stack-role");
+        if(roleEl) roleEl.textContent = member.role;
+
+        const statusEl = cardEl.querySelector(".leadership-stack-status");
+        if(statusEl) statusEl.textContent = member.status;
+    }
+
+    /* UPDATE ACTIVE LEADER — right-side biography */
+
+    function leadershipRenderBio(memberIndex){
+
+        const member = leadershipMembers[memberIndex];
+
+        if(leadershipBioEl){
+            leadershipBioEl.innerHTML = member.shortBiography;
+        }
+    }
+
+    /* UPDATE LEADERSHIP POPUP */
+
+   function leadershipRenderPopup(memberIndex){
+
+        const member = leadershipMembers[memberIndex];
+
+        const img = document.getElementById("leadershipPopupImage");
+        if(img){
+            img.src = member.image;
+            img.alt = member.imageAlt;
+        }
+
+        const overlayName = document.getElementById("leadershipPopupOverlayName");
+        if(overlayName) overlayName.textContent = member.name;
+
+        const overlaySubtitle = document.getElementById("leadershipPopupOverlaySubtitle");
+        if(overlaySubtitle) overlaySubtitle.textContent = member.popupOverlaySubtitle;
+
+        const popupName = document.getElementById("leadershipPopupName");
+        if(popupName) popupName.textContent = member.name;
+
+        const popupRole = document.getElementById("leadershipPopupRole");
+        if(popupRole) popupRole.textContent = member.popupRole;
+
+        const introP1 = document.getElementById("leadershipPopupIntroP1");
+        if(introP1) introP1.textContent = member.popupIntroduction;
+
+        const introP2 = document.getElementById("leadershipPopupIntroP2");
+        if(introP2) introP2.textContent = member.popupSecondParagraph;
+
+        const quote = document.getElementById("leadershipPopupQuote");
+        if(quote) quote.textContent = member.popupQuote;
+
+        const awardsEl = document.getElementById("leadershipPopupAwards");
+        if(awardsEl){
+            awardsEl.innerHTML = member.awards
+                .map(function(award){ return "<li>" + award + "</li>"; })
+                .join("");
+        }
+
+        const highlightsEl = document.getElementById("leadershipPopupHighlights");
+        if(highlightsEl){
+            highlightsEl.innerHTML = member.careerHighlights
+                .map(function(item){
+                    return (
+                        '<div class="highlight-card">' +
+                            "<h4>" + item.title + "</h4>" +
+                            "<p>" + item.description + "</p>" +
+                        "</div>"
+                    );
+                })
+                .join("");
+        }
+
+        const expertiseEl = document.getElementById("leadershipPopupExpertise");
+        if(expertiseEl) expertiseEl.textContent = member.expertise;
+
+        const impactEl = document.getElementById("leadershipPopupImpact");
+        if(impactEl) impactEl.textContent = member.impact;
+
+        /* RESET SCROLL AFTER ALL CONTENT HAS BEEN UPDATED */
+        resetLeadershipPopupScroll();
+    }
+    /* UPDATE LEADERSHIP CAROUSEL — swaps front/rear cards + syncs content */
+
+    function updateLeadershipCarousel(){
+
+        if(leadershipAnimating) return;
+        leadershipAnimating = true;
+
+        const frontCard = document.querySelector(".leadership-stack-front");
+        const rearCard = document.querySelector(".leadership-stack-rear");
+
+        if(!frontCard || !rearCard){
+            leadershipAnimating = false;
+            return;
+        }
+
+        /* ANIMATE: FRONT MOVES BACK, REAR MOVES FRONT */
+
+        frontCard.classList.remove("leadership-stack-front");
+        frontCard.classList.add("leadership-stack-rear");
+
+        rearCard.classList.remove("leadership-stack-rear");
+        rearCard.classList.add("leadership-stack-front");
+
+        const nextRearIndex =
+            (currentLeadershipIndex + 1) % leadershipMembers.length;
+
+        /* rearCard element just became the new front */
+        leadershipRenderCard(rearCard, currentLeadershipIndex);
+
+        /* frontCard element just became the new rear */
+        leadershipRenderCard(frontCard, nextRearIndex);
+
+        leadershipRenderBio(currentLeadershipIndex);
+        leadershipRenderPopup(currentLeadershipIndex);
+
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+
+        setTimeout(function(){
+            leadershipAnimating = false;
+        }, 650);
+    }
+
+    /* INITIAL RENDER */
+
+    leadershipRenderCard(leadershipCardA, 0);
+    leadershipRenderCard(leadershipCardB, 1);
+    leadershipRenderBio(0);
+    leadershipRenderPopup(0);
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+    /* NAV BUTTON EVENTS */
+
+    if (previousButton && nextButton) {
+
+        previousButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            currentLeadershipIndex =
+                (currentLeadershipIndex - 1 + leadershipMembers.length)
+                % leadershipMembers.length;
+
+            updateLeadershipCarousel();
+        });
+
+        nextButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            currentLeadershipIndex =
+                (currentLeadershipIndex + 1)
+                % leadershipMembers.length;
+
+            updateLeadershipCarousel();
+        });
+    }
+
+});

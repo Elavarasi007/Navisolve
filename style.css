@@ -172,50 +172,183 @@ img{
 /* =========================================
    BUTTON
 ========================================= */
+/* =====================================================
+   PREMIUM CONTACT BUTTON
+===================================================== */
 
 .contact-btn{
 
-    display:flex;
+    position:relative;
 
+    display:inline-flex;
     align-items:center;
-
     justify-content:center;
 
-    height:58px;
+    isolation:isolate;
+    overflow:hidden;
 
-    padding:0 34px;
+    cursor:pointer;
+    text-decoration:none;
+    white-space:nowrap;
 
-    border-radius:50px;
+    min-width:190px;
+    height:52px;
+    padding:0 36px;
+
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:.2px;
+
+    color:#fff;
+
+    /* Same Gold Tone as Explore Button */
+
+background: linear-gradient(
+    90deg,
+    #ecdba7 0%,
+    #e3c67d 100%
+);
+
+
+    clip-path:polygon(
+        18px 0,
+        calc(100% - 18px) 0,
+        100% 18px,
+        100% calc(100% - 18px),
+        calc(100% - 18px) 100%,
+        18px 100%,
+        0 calc(100% - 18px),
+        0 18px
+    );
+
+    border:none;
+
+    filter:
+        drop-shadow(0 10px 22px rgba(201,169,98,.22));
+
+    transition:
+        background .35s ease,
+        transform .35s ease,
+        filter .35s ease;
+}
+
+
+
+/* ==========================================
+   OUTER METALLIC FRAME
+   Full-shape conic-gradient "ring" — light
+   flows continuously around every straight
+   edge AND every diagonal corner, since it's
+   angle-based rather than bounding-box based.
+========================================== */
+.contact-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    clip-path:polygon(
+        18px 0,
+        calc(100% - 18px) 0,
+        100% 18px,
+        100% calc(100% - 18px),
+        calc(100% - 18px) 100%,
+        18px 100%,
+        0 calc(100% - 18px),
+        0 18px
+    );
+
+    pointer-events:none;
 
     background:
-        linear-gradient(
-            135deg,
-            #d4b15b,
-            #c8863f
+        conic-gradient(
+            from 135deg at 50% 50%,
+            rgba(255,255,255,.95) 0deg,
+            rgba(255,247,222,.65) 40deg,
+            rgba(214,178,104,.30) 90deg,
+            rgba(120,85,24,.55) 160deg,
+            rgba(90,60,14,.70) 200deg,
+            rgba(214,178,104,.30) 270deg,
+            rgba(255,247,222,.65) 320deg,
+            rgba(255,255,255,.95) 360deg
         );
 
-    color:#fff !important;
+    z-index:2;
+}
+
+
+
+/* ==========================================
+   INNER FILL — same octagon, evenly inset,
+   reveals only a thin even ring of the
+   conic frame behind it as the "border".
+========================================== */
+.contact-btn span{
+
+    position:relative;
+
+    z-index:10;
+
+    display:inline-block;
+
+    color:#ffffff;
+
+    font-size:18px;
 
     font-weight:600;
 
-    box-shadow:
-        0 10px 24px rgba(201,169,98,0.18);
+    letter-spacing:.2px;
 
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
+    text-shadow:
+        0 1px 2px rgba(0,0,0,.12);
+
+    pointer-events:none;
 }
 
 
-/* BUTTON HOVER */
 
-.contact-btn:hover{
+/* ==========================================
+   INNER FILL — same octagon, evenly inset,
+   reveals only a thin even ring of the
+   conic frame behind it as the "border".
+========================================== */
+.contact-btn::after{
 
-    transform:translateY(-2px);
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    clip-path:polygon(
+        calc(14.6px) 0,
+        calc(100% - 14.6px) 0,
+        100% calc(14.6px),
+        100% calc(100% - 14.6px),
+        calc(100% - 14.6px) 100%,
+        calc(14.6px) 100%,
+        0 calc(100% - 14.6px),
+        0 calc(14.6px)
+    );
+
+    pointer-events:none;
+
+    background: linear-gradient(
+        90deg,
+        #ecdba7 0%,
+        #e3c67d 100%
+    );
 
     box-shadow:
-        0 16px 34px rgba(201,169,98,0.24);
+        inset 0 1px 0 rgba(255,255,255,.55),
+        inset 0 -1px 2px rgba(120,84,18,.30);
+
+    z-index:3;
 }
+
 
 /*=========================================
  HERO SECTION
@@ -4517,7 +4650,7 @@ font-family:'Cormorant Garamond', serif !important;
 
 /* BUTTON */
 
-.contact-btn{
+.contact-btn1{
 
     width:100%;
 
@@ -11441,6 +11574,13 @@ box-shadow:
     );
 }
 
+.nsv-divider-logo{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    display:block;
+}
+
 /* ---------- FEATURES ---------- */
 
 .nsv-hero .nsv-features{
@@ -11539,6 +11679,7 @@ box-shadow:
     display:inline-flex;
     align-items:center;
     justify-content:center;
+    margin-top: 50px;
 
     min-width:220px;
     height:56px;
@@ -11608,6 +11749,7 @@ box-shadow:
     display:grid;
     grid-template-columns:repeat(3,1fr);
     column-gap:50px;
+    margin-top: 30px;
 }
 
 .nsv-hero .nsv-stat.stat-box{
@@ -14115,4 +14257,337 @@ box-shadow:
 
     text-align:center;
 
+}
+
+/* =========================================
+   LEADERSHIP GRID — WIDENED FIRST COLUMN
+   (room for the peeking rear card AND the
+   side nav buttons without touching the
+   biography text on the right)
+========================================= */
+
+.leadership-grid{
+
+    grid-template-columns: 640px 1fr;
+
+    gap:24px;
+}
+
+
+/* =========================================
+   LEADERSHIP CAROUSEL VISUAL
+   (holds prev button + card stack + next button)
+========================================= */
+
+.leadership-carousel-visual{
+
+    position:relative;
+
+    width:fit-content;
+
+    max-width:100%;
+
+    margin:0 0 40px;
+}
+
+.leadership-card-stack{
+
+    position:relative;
+
+    width:460px;
+
+    max-width:100%;
+
+    height:500px;
+}
+
+.leadership-stack-card{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+}
+
+/* IMAGE STACK IMG (reuse existing image look) */
+
+.leadership-stack-card .leadership-stack-img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    display:block;
+}
+
+
+/* ACTIVE / FRONT CARD */
+
+.leadership-stack-front{
+
+    z-index:5;
+
+    opacity:1;
+
+    transform:translateX(0) scale(1);
+
+    filter:blur(0);
+
+    pointer-events:auto;
+
+    transition:
+        transform 0.6s cubic-bezier(0.22,0.68,0.32,1),
+        opacity 0.6s ease,
+        filter 0.6s ease,
+        box-shadow 0.45s ease;
+}
+
+
+/* INACTIVE / REAR CARD */
+
+.leadership-stack-rear{
+
+    z-index:2;
+
+    opacity:0.45;
+
+    transform:translateX(20%) scale(0.95);
+
+    filter:blur(1px);
+
+    pointer-events:none;
+
+    transition:
+        transform 0.6s cubic-bezier(0.22,0.68,0.32,1),
+        opacity 0.6s ease,
+        filter 0.6s ease,
+        box-shadow 0.45s ease;
+}
+
+
+/* =========================================
+   CAROUSEL NAV BUTTONS (leadership-nav-)
+   — positioned BESIDE the card stack, not below
+========================================= */
+
+.leadership-nav-button{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(200,167,93,0.30);
+
+    background:#ffffff;
+
+    color:#c8a75d;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    z-index:30;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.leadership-nav-prev{
+
+    left:-72px;
+}
+
+.leadership-nav-next{
+
+    right:-72px;
+}
+
+.leadership-nav-button:hover{
+
+    background:#c8a75d;
+
+    color:#fff;
+
+    transform:translateY(-50%) scale(1.06);
+
+    box-shadow:
+        0 14px 30px rgba(201,169,98,0.25);
+}
+
+.leadership-nav-button:active{
+
+    transform:translateY(-50%) scale(0.96);
+}
+
+.leadership-nav-button svg{
+
+    width:24px;
+
+    height:24px;
+
+    stroke-width:1.8;
+}
+
+
+/* =========================================
+   POPUP NAME OVERRIDE
+   (name lives in a <span> for JS updates,
+   but must NOT inherit the gold gradient
+   ".popup-right h2 span" rule — only the
+   role span next to it should)
+========================================= */
+
+#leaderPopup .popup-right h2 #leadershipPopupName{
+
+    display:inline;
+
+    margin-top:0;
+
+    font-style:normal;
+
+    font-weight:500;
+
+    background:none;
+
+    -webkit-background-clip:initial;
+
+    -webkit-text-fill-color:#111111;
+
+    background-clip:initial;
+
+    color:#fff;
+}
+
+#leaderPopup .popup-right h2 #leadershipPopupRole{
+
+    display:block;
+}
+
+
+/* =========================================
+   RESPONSIVE — LEADERSHIP CAROUSEL
+========================================= */
+
+@media(max-width:1100px){
+
+    .leadership-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .leadership-carousel-visual{
+
+        margin:0 auto 40px;
+    }
+}
+
+
+@media(min-width:769px) and (max-width:1100px){
+
+    .leadership-nav-prev{
+
+        left:-30px;
+    }
+
+    .leadership-nav-next{
+
+        right:-30px;
+    }
+}
+
+
+@media(max-width:768px){
+
+    .leadership-carousel-visual{
+
+        width:100%;
+
+        display:flex;
+
+        justify-content:center;
+    }
+
+    .leadership-card-stack{
+
+        height:560px;
+
+        max-width:460px;
+    }
+
+    .leadership-stack-rear{
+
+        transform:translateX(14%) scale(0.95);
+    }
+
+    .leadership-nav-button{
+
+        width:44px;
+
+        height:44px;
+
+        z-index:40;
+    }
+
+    .leadership-nav-button svg{
+
+        width:20px;
+
+        height:20px;
+    }
+
+    .leadership-nav-prev{
+
+        left:6px;
+    }
+
+    .leadership-nav-next{
+
+        right:6px;
+    }
+
+    .leadership{
+
+        overflow-x:hidden;
+    }
+}
+
+/* =========================================================
+   NSVX — LEADERSHIP POPUP BACKGROUND SCROLL LOCK
+========================================================= */
+html.leadership-popup-open,
+body.leadership-popup-open {
+    overflow: hidden !important;
+    overscroll-behavior: none;
+}
+
+#leaderPopup {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
 }

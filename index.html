@@ -86,9 +86,9 @@
 
         </div>
 
-        <a href="#contact" class="contact-btn">
-            Contact Us
-        </a>
+       <a href="#contact" class="contact-btn">
+    <span>Contact Us</span>
+</a>
 
     </div>
 
@@ -111,11 +111,15 @@
             <span class="nsv-title-gold">Advisory</span>
         </h1>
 
-        <span class="nsv-title-divider" data-nsv-animate data-nsv-delay="200">
-            <span class="nsv-divider-line"></span>
-            <i data-lucide="diamond"></i>
-            <span class="nsv-divider-line"></span>
-        </span>
+        <span class="nsv-title-divider">
+    <span class="nsv-divider-line"></span>
+
+    <img src="images/divider_logo.png"
+         alt="Logo"
+         class="nsv-divider-logo">
+
+    <span class="nsv-divider-line"></span>
+</span>
 
         <!-- FEATURES -->
 
@@ -229,21 +233,8 @@
 
 </div>
 
-        <!-- BUTTONS -->
 
-        <div class="nsv-buttons" data-nsv-animate data-nsv-delay="1050">
-
-            <a href="#services" class="nsv-btn">
-                Explore Our Services
-            </a>
-
-            <a href="#contact" class="nsv-btn">
-                Contact Us
-            </a>
-
-        </div>
-
-        <!-- STATS (stat-box / h2[data-target] kept only as JS hooks for the existing counter script) -->
+ <!-- STATS (stat-box / h2[data-target] kept only as JS hooks for the existing counter script) -->
 
         <div class="nsv-stats">
 
@@ -263,6 +254,19 @@
             </div>
 
         </div>
+        <!-- BUTTONS -->
+
+        <div class="nsv-buttons" data-nsv-animate data-nsv-delay="1050">
+
+            <a href="#services" class="nsv-btn">
+                Explore Solutions
+            </a>
+
+           
+
+        </div>
+
+       
 
     </div>
 
@@ -360,7 +364,7 @@
 
             <h3>$2Tn+</h3>
 
-         <span>CAPITAL ADMINISTRATION</span>
+         <span>ASSETS</span>
 
           </div>
 
@@ -4299,7 +4303,7 @@ PLACE BELOW HERO
                 <span class="title-line"></span>
 
                 <span class="section-tag">
-                    OUR LEADERSHIP
+                    OUR EXPERTISE
                 </span>
 
             </div>
@@ -4314,58 +4318,94 @@ PLACE BELOW HERO
 
         <!-- LEADERSHIP GRID -->
 
-        <div class="leadership-grid">
+        <!-- LEADERSHIP GRID -->
+
+<!-- LEADERSHIP GRID -->
+
+<div class="leadership-grid">
 
 
-            <!-- LEFT IMAGE -->
+    <!-- LEADERSHIP CAROUSEL VISUAL -->
 
-            <div class="leader-image-card">
+    <div class="leadership-carousel-visual" id="leadershipCarouselVisual">
 
-                <img
-                    src="images/team.webp"
-                    alt="Navita Yadav">
+        <button
+            type="button"
+            class="leadership-nav-button leadership-nav-prev"
+            aria-label="Previous team member">
+            <i data-lucide="chevron-left"></i>
+        </button>
+
+        <div class="leadership-card-stack">
+
+            <!-- CARD B (starts as REAR / Arjun Mehta) -->
+            <div class="leader-image-card leadership-stack-card leadership-stack-rear" id="leadershipCardB">
+
+                <img class="leadership-stack-img" src="images/team.webp" alt="Arjun Mehta">
 
                 <div class="leader-info-card">
 
-                    <h3>
-                        Navita Yadav
-                    </h3>
+                    <h3 class="leadership-stack-name">Arjun Mehta</h3>
 
-                    <span>
-                        Founder & Principal
-                    </span>
+                    <span class="leadership-stack-role">Senior Strategic Advisor</span>
 
                     <div class="leader-status">
-
                         <span class="status-dot"></span>
-
-                        Global Finance & Investment Leader
-
+                        <span class="leadership-stack-status">Global Strategy & Capital Markets Leader</span>
                     </div>
-<!-- KNOW MORE LINK -->
 
-<a
-    href="javascript:void(0)"
-    class="leader-link"
-    onclick="openPopup()">
-
-    Know More
-
-    <i data-lucide="arrow-right"></i>
-
-</a>
-
+                    <a href="javascript:void(0)" class="leader-link" onclick="openPopup()">
+                        Know More
+                        <i data-lucide="arrow-right"></i>
+                    </a>
 
                 </div>
 
             </div>
 
 
-            <!-- RIGHT CONTENT -->
+            <!-- CARD A (starts as FRONT / Navita Yadav) -->
+            <div class="leader-image-card leadership-stack-card leadership-stack-front" id="leadershipCardA">
 
-            <div class="leader-content">
+                <img class="leadership-stack-img" src="images/team.webp" alt="Navita Yadav">
 
-      <p class="leader-intro">
+                <div class="leader-info-card">
+
+                    <h3 class="leadership-stack-name">Navita Yadav</h3>
+
+                    <span class="leadership-stack-role">Founder & Principal</span>
+
+                    <div class="leader-status">
+                        <span class="status-dot"></span>
+                        <span class="leadership-stack-status">Global Finance & Investment Leader</span>
+                    </div>
+
+                    <a href="javascript:void(0)" class="leader-link" onclick="openPopup()">
+                        Know More
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            type="button"
+            class="leadership-nav-button leadership-nav-next"
+            aria-label="Next team member">
+            <i data-lucide="chevron-right"></i>
+        </button>
+
+    </div>
+
+
+    <!-- RIGHT CONTENT -->
+
+    <div class="leader-content">
+
+      <p class="leader-intro" id="leadershipActiveBio">
 
     Global finance and investment leader with over <strong>25 years of experience</strong> across banking, capital markets,and private capital. Navita Yadav has built and scaled international financial institutions, led major M&A initiatives, and advised businesses, regulators, and investment firms across Europe, Asia, and the Middle East.
 
@@ -4379,13 +4419,21 @@ PLACE BELOW HERO
 
 </p>
 
-            </div>
+    </div>
 
-        </div>
-
+</div>
     </div>
 
 </section>  
+
+
+
+
+
+
+<!-- =========================================
+   LEADERSHIP POPUP
+========================================= -->
 
 <!-- =========================================
    LEADERSHIP POPUP
@@ -4428,6 +4476,7 @@ PLACE BELOW HERO
 <div class="popup-image-card">
 
     <img
+        id="leadershipPopupImage"
         src="images/team.webp"
         alt="Navita Yadav">
 
@@ -4436,11 +4485,11 @@ PLACE BELOW HERO
 
     <div class="popup-image-overlay">
 
-        <h3>
+        <h3 id="leadershipPopupOverlayName">
             Navita Yadav
         </h3>
 
-        <span>
+        <span id="leadershipPopupOverlaySubtitle">
             Founder & Principal · Navisolve Ltd
         </span>
 
@@ -4449,33 +4498,16 @@ PLACE BELOW HERO
 </div>
 
 
-            <!-- ACHIEVEMENTS -->
+            <!-- ACHIEVEMENTS (populated by UPDATE LEADERSHIP POPUP) -->
 
-            <ul class="popup-awards">
+            <ul class="popup-awards" id="leadershipPopupAwards">
 
-                <li>
-                    British Asians Role Model — 2026
-                </li>
-
-                  <li>
-                    UK Professional Impact of the Year — 2024
-                </li>
-
-                <li>
-                    India’s Top 100 Women in Finance — 2019
-                </li>
-
-                <li>
-                    Power Profile in Financial Services — 2016
-                </li>
-
-                <li>
-                    Business Leadership Award for Innovation — 2015
-                </li>
-
-                <li>
-                    Women’s Leadership Achievement Award — 2014
-                </li>
+                <li>British Asians Role Model of the Year — 2026</li>
+                <li>UK Professional Impact of the Year — 2024</li>
+                <li>India’s Top 100 Women in Finance — 2019</li>
+                <li>Power Profile in Financial Services — 2016</li>
+                <li>Business Leadership Award for Innovation — 2015</li>
+                <li>Women’s Leadership Achievement Award — 2014</li>
 
             </ul>
 
@@ -4496,7 +4528,7 @@ PLACE BELOW HERO
     <span class="popup-line"></span>
 
     <span class="popup-tag">
-        OUR LEADERSHIP
+        OUR EXPERTISE
     </span>
 
 </div>
@@ -4506,23 +4538,23 @@ PLACE BELOW HERO
             <!-- TITLE -->
 
             <h2>
-                Navita Yadav 
-                <span>Founder & Principal</span>
+                <span id="leadershipPopupName">Navita Yadav</span>
+                <span id="leadershipPopupRole">Founder & Principal</span>
             </h2>
 
 
             <!-- INTRO -->
 
-            <div class="popup-intro">
+            <div class="popup-intro" id="leadershipPopupIntro">
 
-                <p>
+                <p id="leadershipPopupIntroP1">
                     Navita Yadav is a Global business leader and
                     value creator with over 25 years of Senior
                     management and Board experience in Business
                     Services, Banking and Consulting.
                 </p>
 
-                <p>
+                <p id="leadershipPopupIntroP2">
                     Her extensive leadership background includes CEO, Executive Committee member, and global head positions within major financial services and capital markets institutions.
                 </p>
 
@@ -4533,7 +4565,7 @@ PLACE BELOW HERO
 
             <div class="popup-quote">
 
-                <p>
+                <p id="leadershipPopupQuote">
                     “Recognised as an international expert across
                     European and Asian financial markets, Navita
                     has Successfully built, operated and monetised businesses spanning continents.”
@@ -4551,16 +4583,14 @@ PLACE BELOW HERO
                 </h3>
 
 
-                <div class="highlight-grid">
+                <div class="highlight-grid" id="leadershipPopupHighlights">
 
 
                     <!-- BOX 1 -->
 
                     <div class="highlight-card">
 
-                        <h4>
-                            Partners Group Platform Leadership
-                        </h4>
+                        <h4>Partners Group Platform Leadership</h4>
 
                         <p>
                             Leads a Global Investment platform in
@@ -4575,9 +4605,7 @@ PLACE BELOW HERO
 
                     <div class="highlight-card">
 
-                        <h4>
-                            Apex Group — Regional CEO
-                        </h4>
+                        <h4>Apex Group — Regional CEO</h4>
 
                         <p>
                             Administered US$2 trillion in Private
@@ -4592,9 +4620,7 @@ PLACE BELOW HERO
 
                     <div class="highlight-card">
 
-                        <h4>
-                            Vistra — Global Head
-                        </h4>
+                        <h4>Vistra — Global Head</h4>
 
                         <p>
                             Built one of the first truly global
@@ -4609,9 +4635,7 @@ PLACE BELOW HERO
 
                     <div class="highlight-card">
 
-                        <h4>
-                            M&A & Transformation
-                        </h4>
+                        <h4>M&A & Transformation</h4>
 
                         <p>
                             Led 12 major mergers and acquisitions
@@ -4634,7 +4658,7 @@ PLACE BELOW HERO
         Areas of Expertise
     </h3>
 
-    <p class="leader-expertise">
+    <p class="leader-expertise" id="leadershipPopupExpertise">
 
         Financial Services · Banking · Consulting ·
         Capital Markets · Private Equity · Asset
@@ -4657,7 +4681,7 @@ PLACE BELOW HERO
         Social Impact
     </h3>
 
-    <p class="leader-impact">
+    <p class="leader-impact" id="leadershipPopupImpact">
 
         Beyond business leadership, Navita actively
         supports healthcare initiatives for vulnerable
@@ -4678,6 +4702,9 @@ PLACE BELOW HERO
     </div>
 
 </div>
+
+
+
 <!-- =========================================
    RECOGNITION
 ========================================= -->
@@ -4731,7 +4758,7 @@ PLACE BELOW HERO
         </h3>
 
         <p>
-            British Asians Who's Who – United Kingdom recognised for driving international business growth,
+            <span style="font-weight: bold;">British Asians Who's Who</span> – United Kingdom recognised for driving international business growth,
             strategic leadership across global financial markets and contribution to development of critical health care systems in Africa.
         </p>
 
@@ -4757,7 +4784,7 @@ PLACE BELOW HERO
         </h3>
 
         <p>
-            Economic Policy Group, United Kingdom —
+             <span style="font-weight: bold;">Economic Policy Group, United Kingdom</span> —
             Honoured for outstanding professional contribution
             and leadership impact across global financial markets.
         </p>
@@ -4784,7 +4811,7 @@ PLACE BELOW HERO
         </h3>
 
         <p>
-            Association of International Wealth Management —
+            <span style="font-weight: bold;">Association of International Wealth Management</span> —
             Named among India’s most influential women leaders
             in financial services.
         </p>
@@ -4811,7 +4838,7 @@ PLACE BELOW HERO
         </h3>
 
         <p>
-            LinkedIn —
+            <span style="font-weight: bold;">LinkedIn</span> —
             Recognised for building commanding global professional
             presence and drives industry influence within financial services.
         </p>
@@ -4838,7 +4865,7 @@ PLACE BELOW HERO
         </h3>
 
         <p>
-            SKOCH Group —
+            <span style="font-weight: bold;">SKOCH Group </span>—
             Awarded for innovation, business transformation,
             and sustainable growth in financial services.
         </p>
@@ -4865,7 +4892,7 @@ PLACE BELOW HERO
         </h3>
 
         <p>
-            World Leadership Congress —
+            <span style="font-weight: bold;">World Leadership Congress </span>—
             Honoured for exemplary strategic leadership, vision,
             and long-term impact across international
             leadership platforms.
@@ -5033,6 +5060,8 @@ PLACE BELOW HERO
             <option>Capital Markets</option>
             <option>M&A Advisory</option>
             <option>Business Transformation</option>
+            <option>Private Capital</option>
+            <option>Board Governance</option>
         </select>
     </div>
 
@@ -5043,7 +5072,7 @@ PLACE BELOW HERO
                   required></textarea>
     </div>
 
-    <button type="submit" class="contact-btn">
+    <button type="submit" class="contact-btn1">
         Send Enquiry
     </button>
 
@@ -5159,7 +5188,7 @@ PLACE BELOW HERO
 
                     <li>
                         <a href="#team">
-                            Leadership
+                            Expertise
                         </a>
                     </li>
 
