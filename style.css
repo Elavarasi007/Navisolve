@@ -4028,11 +4028,11 @@ font-family:'Cormorant Garamond', serif !important;
 
     bottom: 14px;
 
-    background:rgba(255,255,255,0.96);
+    background:rgb(255, 255, 255);
 
     border-radius:28px;
 
-    padding:25px;
+    padding:20px;
 
     backdrop-filter:blur(12px);
 
@@ -4089,7 +4089,7 @@ font-family:'Cormorant Garamond', serif !important;
 
     font-size:14px;
 
-    margin-bottom:24px;
+    margin-bottom:14px;
 }
 
 .status-dot{
@@ -14268,7 +14268,7 @@ box-shadow:
 
 .leadership-grid{
 
-    grid-template-columns: 640px 1fr;
+    grid-template-columns: 580px 1fr;
 
     gap:24px;
 }
@@ -14387,9 +14387,9 @@ box-shadow:
 
     transform:translateY(-50%);
 
-    width:54px;
+    width:44px;
 
-    height:54px;
+    height:44px;
 
     border-radius:50%;
 
@@ -14420,12 +14420,12 @@ box-shadow:
 
 .leadership-nav-prev{
 
-    left:-72px;
+    left:-57px;
 }
 
 .leadership-nav-next{
 
-    right:-72px;
+    right:-57px;
 }
 
 .leadership-nav-button:hover{
@@ -14591,3 +14591,457 @@ body.leadership-popup-open {
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
 }
+
+/* =========================================================
+   EXPERTISE (LEADERSHIP) SECTION — RESPONSIVE FIX ONLY
+   Paste this block at the VERY END of style.css.
+   Touches ONLY: .leadership*, .leader-*, .leadership-nav-*
+   No colors, fonts, or animation values are changed.
+========================================================= */
+
+/* -----------------------------------------------------
+   1. FLUID CARD STACK (fixes overflow below ~510px)
+   The stack was width:460px with no scale-down path, so on
+   any viewport under ~510px it started clipping/overflowing.
+   min() lets it stay 460px on desktop/tablet and shrink to
+   fit on phones. aspect-ratio keeps image+info-card
+   proportions locked as it shrinks (no "too tall" card).
+----------------------------------------------------------- */
+.leadership-carousel-visual{
+    width: min(460px, 100%);
+}
+
+.leadership-card-stack{
+    width: min(460px, 100%);
+    height: auto;
+    aspect-ratio: 460 / 500;
+}
+
+/* =========================================================
+   TABLET LANDSCAPE / IPAD LANDSCAPE (1024–1100px)
+========================================================= */
+@media (max-width:1100px){
+
+    .leadership-carousel-visual{
+        width: min(460px, 100%);
+        margin: 0 auto 40px;
+    }
+
+    .leader-content{
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+    }
+}
+
+/* =========================================================
+   TABLET PORTRAIT / IPAD (768px and below)
+========================================================= */
+@media (max-width:768px){
+
+    .leadership-card-stack{
+        width: min(460px, 100%);
+        height: auto;
+        aspect-ratio: 46 / 56; /* mirrors your existing 460x560 mobile ratio */
+    }
+
+    .leader-info-card{
+        left: clamp(12px, 4vw, 24px);
+        right: clamp(12px, 4vw, 24px);
+        bottom: clamp(10px, 3vw, 16px);
+        padding: clamp(14px, 4vw, 22px);
+    }
+
+    .leader-info-card h3{
+        font-size: clamp(20px, 6vw, 30px);
+        margin-bottom: clamp(8px, 2vw, 12px);
+    }
+
+    .leader-info-card .leader-role{
+        font-size: clamp(13px, 3.6vw, 16px);
+        margin-bottom: clamp(10px, 3vw, 16px);
+    }
+
+    .leader-status{
+        font-size: clamp(11px, 3vw, 13px);
+        margin-bottom: clamp(8px, 2.4vw, 12px);
+        flex-wrap: wrap;
+    }
+
+    .leader-link{
+        font-size: clamp(13px, 3.4vw, 15px);
+    }
+
+    .leadership-nav-button{
+        width: clamp(36px, 9vw, 44px);
+        height: clamp(36px, 9vw, 44px);
+    }
+
+    .leadership-nav-button svg{
+        width: clamp(16px, 4.5vw, 20px);
+        height: clamp(16px, 4.5vw, 20px);
+    }
+
+    .leadership-nav-prev{
+        left: clamp(4px, 2vw, 10px);
+    }
+
+    .leadership-nav-next{
+        right: clamp(4px, 2vw, 10px);
+    }
+
+    .leader-content{
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .leader-intro{
+        font-size: clamp(15px, 4vw, 19px);
+        text-align: left; /* justify reads poorly once column narrows */
+        line-height: 1.8;
+    }
+}
+
+/* =========================================================
+   MOBILE LARGE / MEDIUM / SMALL (down to 320px)
+   Handles the tightest paddings and prevents the nav arrows
+   from crowding the card edges on very small phones.
+========================================================= */
+@media (max-width:400px){
+
+    .leader-info-card{
+        left: 10px;
+        right: 10px;
+        bottom: 8px;
+        padding: 14px;
+    }
+
+    .leader-info-card h3{
+        font-size: clamp(19px, 7vw, 22px);
+        margin-bottom: 8px;
+    }
+
+    .leader-status{
+        gap: 6px;
+    }
+
+    .leadership-nav-prev{
+        left: 2px;
+    }
+
+    .leadership-nav-next{
+        right: 2px;
+    }
+}
+
+.contact-btn{
+    display:none !important;
+}
+
+
+
+/* ==========================================
+   NAVISOLVE HEADER CONTACT BUTTON
+========================================== */
+.nsv-contact-gold{
+
+    justify-self:end;
+
+    align-self:center;
+
+    display:inline-flex;
+
+    width:200px;
+
+    padding:0;
+
+    margin:0;
+
+    line-height:0;
+
+    font-size:0;
+
+    position:relative;
+
+    background:transparent;
+
+    border:none;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:transform .3s ease;
+}
+
+.nsv-contact-gold img{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    transition:transform .3s ease;
+}
+
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.nsv-contact-gold:hover{
+
+    transform:translateY(-2px);
+}
+
+.nsv-contact-gold:hover img{
+
+filter: drop-shadow(0 4px 8px rgba(181,147,63,.10));
+}
+
+
+/* ==========================================
+   SHINE EFFECT
+========================================== */
+
+.nsv-contact-gold::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-40%;
+
+    width:18%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,.75) 50%,
+            rgba(255,255,255,0) 100%
+        );
+
+    transform:skewX(-25deg);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:5;
+}
+
+.nsv-contact-gold:hover::after{
+
+    opacity:1;
+
+    animation:nsvBtnShine .8s linear;
+}
+
+
+@keyframes nsvBtnShine{
+
+    from{
+
+        left:-35%;
+
+    }
+
+    to{
+
+        left:125%;
+
+    }
+
+}
+
+
+/* ==========================================
+   REMOVE DEFAULT STATES
+========================================== */
+
+.nsv-contact-gold:hover,
+.nsv-contact-gold:focus,
+.nsv-contact-gold:active{
+
+    background:transparent !important;
+
+    border:none;
+
+    outline:none;
+
+    box-shadow:none;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:1200px){
+
+    .nsv-contact-gold{
+
+        width:190px;
+
+    }
+
+}
+
+@media (max-width:1024px){
+
+    .nsv-contact-gold{
+
+        width:175px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .nsv-contact-gold{
+
+        width:155px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .nsv-contact-gold{
+
+        width:140px;
+
+    }
+
+}
+
+/* Desktop & Tablet */
+.menu-toggle{
+    display:none;
+}
+
+/* Mobile Only */
+@media screen and (max-width:700px){
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+}
+/* Hide Contact Button on Mobile */
+
+@media screen and (max-width: 768px){
+
+    .nsv-contact-gold{
+
+        display:none !important;
+
+    }
+
+}
+@media screen and (max-width:768px){
+
+    .navbar{
+
+        height:80px;
+    }
+
+    #nsv-hero-section{
+
+        margin-top:0 !important;
+        padding-top:80px !important;
+    }
+
+}
+/* ==========================================
+   MOBILE IMAGE OVERLAY FIX
+========================================== */
+
+@media screen and (max-width:768px){
+
+    .popup-image-card{
+        position:relative;
+        overflow:hidden;
+    }
+
+    .popup-image-overlay{
+
+        position:absolute;
+
+        left:0 !important;
+        right:0 !important;
+        bottom:0 !important;
+
+        width:100% !important;
+        max-width:100% !important;
+
+        transform:none !important;
+
+        padding:24px 20px !important;
+
+        border-radius:0 !important;
+
+        box-sizing:border-box;
+    }
+
+}
+/* ==========================================
+   MOBILE - LEADERSHIP CARD TEXT CENTER
+========================================== */
+
+@media screen and (max-width:768px){
+
+    .leader-info-card{
+
+        text-align:center !important;
+
+        left:12px !important;
+        right:12px !important;
+
+        width:auto !important;
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .leadership-stack-name{
+
+        text-align:center !important;
+
+        width:100%;
+    }
+
+    .leadership-stack-role{
+
+        text-align:center !important;
+
+        width:100%;
+    }
+
+    .leader-status{
+
+        justify-content:center !important;
+
+        width:100%;
+    }
+
+    .leader-link{
+
+        justify-content:center !important;
+
+        margin:12px auto 0;
+    }
+
+}
+

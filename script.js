@@ -1699,7 +1699,7 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Navita Yadav",
             role: "Founder & Principal",
             status: "Global Finance & Investment Leader",
-            image: "images/team.webp",
+            image: "images/team1.webp",
             imageAlt: "Navita Yadav",
 
             shortBiography: `
