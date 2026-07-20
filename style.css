@@ -45,7 +45,7 @@ img{
 }
 
 .section-padding{
-    padding:120px 0;
+    padding:80px 0;
 }
 
 /* =========================================
@@ -172,183 +172,74 @@ img{
 /* =========================================
    BUTTON
 ========================================= */
-/* =====================================================
-   PREMIUM CONTACT BUTTON
-===================================================== */
 
 .contact-btn{
+    position: relative;
+    overflow: hidden;
 
-    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+    height: 48px;
+    padding: 0 34px;
 
-    isolation:isolate;
-    overflow:hidden;
-
-    cursor:pointer;
-    text-decoration:none;
-    white-space:nowrap;
-
-    min-width:190px;
-    height:52px;
-    padding:0 36px;
-
-    font-family:"Helvetica Neue",Arial,sans-serif;
-    font-size:18px;
-    font-weight:600;
-    letter-spacing:.2px;
-
-    color:#fff;
-
-    /* Same Gold Tone as Explore Button */
-
-background: linear-gradient(
-    90deg,
-    #ecdba7 0%,
-    #e3c67d 100%
-);
-
-
-    clip-path:polygon(
-        18px 0,
-        calc(100% - 18px) 0,
-        100% 18px,
-        100% calc(100% - 18px),
-        calc(100% - 18px) 100%,
-        18px 100%,
-        0 calc(100% - 18px),
-        0 18px
-    );
-
-    border:none;
-
-    filter:
-        drop-shadow(0 10px 22px rgba(201,169,98,.22));
-
-    transition:
-        background .35s ease,
-        transform .35s ease,
-        filter .35s ease;
-}
-
-
-
-/* ==========================================
-   OUTER METALLIC FRAME
-   Full-shape conic-gradient "ring" — light
-   flows continuously around every straight
-   edge AND every diagonal corner, since it's
-   angle-based rather than bounding-box based.
-========================================== */
-.contact-btn::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    clip-path:polygon(
-        18px 0,
-        calc(100% - 18px) 0,
-        100% 18px,
-        100% calc(100% - 18px),
-        calc(100% - 18px) 100%,
-        18px 100%,
-        0 calc(100% - 18px),
-        0 18px
-    );
-
-    pointer-events:none;
-
-    background:
-        conic-gradient(
-            from 135deg at 50% 50%,
-            rgba(255,255,255,.95) 0deg,
-            rgba(255,247,222,.65) 40deg,
-            rgba(214,178,104,.30) 90deg,
-            rgba(120,85,24,.55) 160deg,
-            rgba(90,60,14,.70) 200deg,
-            rgba(214,178,104,.30) 270deg,
-            rgba(255,247,222,.65) 320deg,
-            rgba(255,255,255,.95) 360deg
-        );
-
-    z-index:2;
-}
-
-
-
-/* ==========================================
-   INNER FILL — same octagon, evenly inset,
-   reveals only a thin even ring of the
-   conic frame behind it as the "border".
-========================================== */
-.contact-btn span{
-
-    position:relative;
-
-    z-index:10;
-
-    display:inline-block;
-
-    color:#ffffff;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    letter-spacing:.2px;
-
-    text-shadow:
-        0 1px 2px rgba(0,0,0,.12);
-
-    pointer-events:none;
-}
-
-
-
-/* ==========================================
-   INNER FILL — same octagon, evenly inset,
-   reveals only a thin even ring of the
-   conic frame behind it as the "border".
-========================================== */
-.contact-btn::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:5px;
-
-    clip-path:polygon(
-        calc(14.6px) 0,
-        calc(100% - 14.6px) 0,
-        100% calc(14.6px),
-        100% calc(100% - 14.6px),
-        calc(100% - 14.6px) 100%,
-        calc(14.6px) 100%,
-        0 calc(100% - 14.6px),
-        0 calc(14.6px)
-    );
-
-    pointer-events:none;
+    border-radius: 50px;
 
     background: linear-gradient(
-        90deg,
-        #ecdba7 0%,
-        #e3c67d 100%
+        135deg,
+        rgba(236,216,158,0.98) 0%,
+        rgba(210,177,102,0.98) 55%,
+        rgba(184,142,58,0.98) 100%
     );
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+
+    color: #fff !important;
+    font-weight: 600;
+    text-decoration: none;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.55),
-        inset 0 -1px 2px rgba(120,84,18,.30);
+        0 10px 24px rgba(210,177,102,0.20),
+        0 5px 12px rgba(210,177,102,0.12);
 
-    z-index:3;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
 }
 
+/* Shine Effect */
+.contact-btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.30),
+        transparent
+    );
+
+    transition: left .8s ease;
+}
+
+/* Hover */
+.contact-btn:hover{
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 34px rgba(210,177,102,0.30),
+        0 8px 18px rgba(210,177,102,0.18);
+}
+
+/* Shine Animation */
+.contact-btn:hover::before{
+    left: 120%;
+}
 
 /*=========================================
  HERO SECTION
@@ -1054,7 +945,7 @@ background: linear-gradient(
 
     background:#f8f5ef;
 
-    padding:120px 0;
+    padding:80px 0;
 
     overflow:hidden;
 }
@@ -3347,7 +3238,7 @@ background:
 
     position:relative;
 
-    padding:140px 0;
+    padding:80px 0;
 
     background:
         radial-gradient(circle at top left,
@@ -5089,7 +4980,7 @@ font-family:'Cormorant Garamond', serif !important;
 
 .awards-section{
 
-    padding:120px 0;
+    padding:80px 0;
 
     background:#f8f5ef;
 }
@@ -14734,9 +14625,7 @@ body.leadership-popup-open {
     }
 }
 
-.contact-btn{
-    display:none !important;
-}
+
 
 
 
