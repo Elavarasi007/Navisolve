@@ -1192,7 +1192,7 @@ img{
 
 .about{
     background:#f8f5ef;
-    padding:110px 0;
+    padding:80px 0;
     overflow:hidden;
 }
 
@@ -1301,16 +1301,8 @@ img{
 
     line-height:1;
 
-background:
-    linear-gradient(
-        135deg,
-        #9f741f 0%,
-        #ad8330 16%,
-        #c49a46 34%,
-        #ddb96d 58%,
-        #e9cf92 78%,
-        #f2dfb2 100%
-    );
+background-color: #c9a962;
+padding-right: 10px;
 
     -webkit-background-clip:text;
 
@@ -1926,14 +1918,7 @@ background:
 
     letter-spacing:-1px;
 
-    background:
-        linear-gradient(
-            135deg,
-             #9f741f  0%,
-            #d2b166 55%,
-            #ecd89e 62%,
-            #f6e9c3 100%
-        );
+   background-color: #c9a962;
 
   
 
@@ -3411,31 +3396,24 @@ background:
 /* GOLD TEXT */
 
 .presence-title span{
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-style: italic;
+    font-weight: 500;
 
-    
-font-family:'Cormorant Garamond', serif !important;
+    background: #c9a962;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 
-    font-style:italic;
+    line-height: 1.15;
 
-    font-weight:500;
-
-    background:
-        linear-gradient(
-            135deg,
-            #b99643 40%,
-            #d2b166 65%,
-            #ecd89e 82%,
-            #f6e9c3 100%
-        );
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-    background-clip:text;
-
-    color:transparent;
-    padding-right: 5px;
+    /* Fix text clipping */
+    padding-right: 12px;
+    padding-bottom: 20px;
+    margin-right: 6px;
+    overflow: visible;
 }
 /* =========================================
    GRID
@@ -4185,14 +4163,7 @@ font-family:'Cormorant Garamond', serif !important;
 
     letter-spacing:-1px;
 
-    background:
-        linear-gradient(
-            135deg,
-             #b99643 40%,
-            #d2b166 55%,
-            #ecd89e 62%,
-            #f6e9c3 100%
-        );
+   background-color: #c9a962;
 
     -webkit-background-clip:text;
 
@@ -5085,14 +5056,7 @@ font-family:'Cormorant Garamond', serif !important;
 
     letter-spacing:-1px;
 
-    background:
-        linear-gradient(
-            135deg,
-             #b99643 40%,
-            #d2b166 55%,
-            #ecd89e 62%,
-            #f6e9c3 100%
-        );
+  background-color: #c9a962;
 
     -webkit-background-clip:text;
 
@@ -11387,15 +11351,14 @@ box-shadow:
     color:#111111;
    
 }
-
 .nsv-hero .nsv-title-gold{
 
     display:block;
 
     margin-top:-6px;
-    padding-bottom: 30px;
+    padding-bottom:30px;
 
-    font-family: 'Pinyon Script', cursive;
+    font-family:'Pinyon Script', cursive;
 
     font-size:clamp(72px,9vw,145px);
 
@@ -11409,16 +11372,7 @@ box-shadow:
 
     transform:rotate(-2deg);
 
-    background:linear-gradient(
-        90deg,
-        #8d5d18 0%,
-        #b98324 20%,
-        #d2b166 42%,
-        #ecd89e 52%,
-        #d2b166 62%,
-        #b98324 82%,
-        #8d5d18 100%
-    );
+    background:#c9a962;
 
     background-size:220% 100%;
 
@@ -11435,7 +11389,6 @@ box-shadow:
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
 }
-
 /* ---------- DECORATIVE DIVIDER (diamond + lines) ---------- */
 
 .nsv-hero .nsv-title-divider{
