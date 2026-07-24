@@ -14995,28 +14995,157 @@ FINAL NAVBAR RESPONSIVE FIX
 
 }
 /* =========================================
-   LARGE SCREEN (2K / 4K)
+   LARGE SCREEN POPUP (2K / 4K)
 ========================================= */
 
 @media (min-width:2200px){
 
     .popup-box{
 
-        width:min(1800px,92vw);
+        width:min(2000px,95vw) !important;
+        max-width:2000px !important;
 
-        grid-template-columns:520px 1fr;
+        height:96vh !important;
 
-        height:92vh;
+        grid-template-columns:560px 1fr !important;
+    }
+
+    .popup-left{
+
+        overflow:hidden;
+    }
+
+    .popup-left img{
+
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    .popup-right{
+
+        padding:45px 55px 55px !important;
+
+        overflow-y:auto;
+    }
+
+    .popup-right h2{
+
+        font-size:58px;
+    }
+
+    .popup-intro p,
+    .leader-expertise,
+    .leader-impact,
+    .section-text{
+
+        font-size:15px;
+        line-height:1.8;
+    }
+
+    .popup-quote{
+
+        padding:24px 28px;
+    }
+
+    .highlight-grid{
+
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:22px;
     }
 
 }
-@media (min-width:3000px){
+/* =========================================
+   LARGE SCREEN POPUP (2K / 4K ONLY)
+========================================= */
 
+@media (min-width:2200px){
+
+    /* Popup */
     .popup-box{
+        width:96vw !important;
+        max-width:2350px !important;
+        height:95vh !important;
 
-        width:min(2200px,90vw);
+        display:grid;
+        grid-template-columns:520px 1fr !important;
+        overflow:hidden;
+    }
 
-        grid-template-columns:600px 1fr;
+    /* Left Side */
+    .popup-left{
+        height:100%;
+    }
+
+    .popup-left img{
+        width:100%;
+        height:100% !important;
+        object-fit:cover;
+    }
+
+    /* Right Side */
+    .popup-right{
+        padding:45px 55px !important;
+        overflow-y:auto;
+    }
+
+    /* Heading */
+    .popup-right h2{
+        font-size:56px;
+        line-height:1.05;
+        margin-bottom:18px;
+    }
+
+    /* Intro */
+    .popup-intro p,
+    .leader-expertise,
+    .leader-impact,
+    .section-text{
+        font-size:15px;
+        line-height:1.75;
+        margin-bottom:18px;
+    }
+
+    /* Quote */
+    .popup-quote{
+        padding:22px 28px;
+        margin:20px 0;
+    }
+
+    .popup-quote p{
+        font-size:20px;
+        line-height:1.6;
+    }
+
+    /* Career Highlight Cards */
+    .highlight-grid{
+        display:grid !important;
+        grid-template-columns:repeat(4,1fr) !important;
+        gap:18px !important;
+    }
+
+    .highlight-card{
+        padding:22px;
+        min-height:170px;
+    }
+
+    .highlight-card h4{
+        font-size:20px;
+    }
+
+    .highlight-card p{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    /* Section spacing */
+    .popup-section{
+        margin-top:25px;
+    }
+
+    .popup-section h3{
+        margin-bottom:18px;
     }
 
 }
