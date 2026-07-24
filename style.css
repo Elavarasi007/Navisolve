@@ -4522,12 +4522,15 @@ font-family:'Cormorant Garamond', serif !important;
 
     border-radius:18px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #d4b15b,
-            #c8863f
-        );
+    background:linear-gradient(
+        135deg,
+        rgba(236,216,158,0.98) 0%,
+        rgba(210,177,102,0.98) 55%,
+        rgba(184,142,58,0.98) 100%
+    );
+
+    background-size:200% 200%;
+    background-position:0% 0%;
 
     color:#fff;
 
@@ -4540,7 +4543,8 @@ font-family:'Cormorant Garamond', serif !important;
     transition:0.35s ease;
 
     box-shadow:
-        0 10px 25px rgba(201,169,98,0.18);
+        0 16px 32px rgba(210,177,102,0.22),
+        0 6px 14px rgba(210,177,102,0.14);
 }
 
 
@@ -11354,7 +11358,7 @@ box-shadow:
 .nsv-hero .nsv-title-gold{
 
     display:block;
-
+  
     margin-top:-6px;
     padding-bottom:30px;
 
@@ -11388,6 +11392,8 @@ box-shadow:
 
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
+    padding-top: 10px;
+    padding-right: 10px;
 }
 /* ---------- DECORATIVE DIVIDER (diamond + lines) ---------- */
 
